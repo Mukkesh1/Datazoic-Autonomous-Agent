@@ -1,0 +1,2606 @@
+{
+  "info": {
+    "_postman_id": "9f4bbd2c-ad4d-4ef6-b9b2-0bd3831c3881",
+    "name": "Authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30269281",
+    "_collection_link": "https://go.postman.co/collection/43216670-9f4bbd2c-ad4d-4ef6-b9b2-0bd3831c3881?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Generate access_token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{client_secret}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{client_id}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text",
+              "description": "The credential type to exchange for an access token."
+            },
+            {
+              "key": "grant_type",
+              "value": "refresh_token",
+              "type": "text",
+              "description": "The credential type to exchange for an access token.",
+              "disabled": true
+            },
+            {
+              "key": "refresh_token",
+              "value": "{{refresh_token}}",
+              "type": "text",
+              "description": "The refresh token. Use to get access tokens. Use the same authorization grant as described in [OAuth2.0 RFC6749 Section 6](https://tools.ietf.org/html/rfc6749#section-6). Returns value only for `POST /token` calls with a `grant_type` of `authorization_code`.",
+              "disabled": true
+            },
+            {
+              "key": "grant_type",
+              "value": "authorization_code",
+              "type": "text",
+              "description": "The credential type to exchange for an access token.",
+              "disabled": true
+            },
+            {
+              "key": "code",
+              "value": "{{authorization_code}}",
+              "type": "text",
+              "description": "The authorization code that the `/login` call returns to the client to complete a user log in and get a third-party access token. Required if the `grant_type` is `authorization_code`.",
+              "disabled": true
+            },
+            {
+              "key": "ignoreCache",
+              "value": "true",
+              "type": "text",
+              "description": "A new token is issued ignoring the previously issued and still not expired token.",
+              "disabled": true
+            },
+            {
+              "key": "return_authn_schemes",
+              "value": "true",
+              "description": "Lists user authentication options and returns a first-party access token to authenticate an end user. Valid for all grant types except the `authzcode` authorization code, which indicates that the user is already authenticated.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "return_client_metadata",
+              "value": "true",
+              "description": "Lists client metadata attributes. Valid for all grant types.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "return_unconsented_scopes",
+              "value": "true",
+              "description": "Lists unconsented scopes between the user and client. Valid for all grant types except `client_credentials`.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "redirect_uri",
+              "value": "",
+              "description": "The redirection endpoint that terminates the user authorization flow. The value must be an EXACT match to the URI registered for the client during the client registration. If you pass the `target_client_id` parameter, the URI must be `target_client_id`. The out-of-band value is `urn:ietf:wg:oauth:2.0:oob`. Native apps can use the `redirect_uri` parameter.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "response_type",
+              "value": "token",
+              "description": "A space-separated list of token types. If the list is valid, the API returns all requested token types.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "response_type",
+              "value": "uat",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "claims[]",
+              "value": "customer_id:A2062N462U97",
+              "description": "The client-specific key-and-value pairs associated with the access token. You can retrieve these pairs through the security context. Use a comma (`,`) to separate the key-and-value pairs.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "scope",
+              "value": "",
+              "description": "A list of space-separated and case-sensitive scopes, or permissions, to associate with the access token. If you omit this value, the API assumes the maximum set of allowed scopes. The scopes must be one of these values:\nA subset of the scopes authorized for the client.\nConsented by the user in case of end-user scopes.\nAssociated with the refresh token, depending on the `grant_type`.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "device_info",
+              "value": "",
+              "description": "The URL-encoded key-and-value pair that defines device information. If `unbind_device` is `true`, you must include the `device_info` or `refresh_token` parameter.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "app_info",
+              "value": "",
+              "description": "The URL-encoded key-and-value pair that defines application information. If `unbind_device` is `true`, you must include the `app_info` or `refresh_token` parameter.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "risk_data",
+              "value": "",
+              "description": "The URL-encoded key-and-value pairs of data required by risk. You can typically obtain values through the Dyson library. Required for public clients.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "target_subject",
+              "value": "",
+              "description": "The email address or payer ID of the user for whom you want to create an access token. Required if the `grant_type` is `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier`. This kind of `/token` request comes from a legacy client without REST API credentials.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "target_client_id",
+              "value": "",
+              "description": "The client ID of the client application for which the access token is created. Because the client who makes this kind of `/bind` request is a proxy, identifies the real client application. The client ID must have the `GRANT_PROXY_CLIENT` scope to use the `target_client_id` parameter.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "partner_client_id",
+              "value": "",
+              "description": "The ID of the partner with permission granted by the merchant for the partner to create the access token. Required, and only relevant, if the `grant_type` is set to `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/oauth2/token",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "oauth2",
+            "token"
+          ]
+        },
+        "description": "Shows user profile information. Filters the response by a schema. Supported schema value is `paypalv1.1`."
+      },
+      "response": [
+        {
+          "name": "200 - Generate Token With Minimal Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "c03581a198265",
+              "enabled": true
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 26 Jan 2022 01:01:51 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "456",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"scope\": \"https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/vault/payment-tokens/readwrite https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks\",\n    \"access_token\": \"A21AAL8A8rAjJjh1e8JcBuom2FEMJeCREs6Be0TY3T3aI610eKpQ93jV0lpJsvHj-YU7-lR2VaPZNLFOvUY6Wi4OCT7yv2BFA\",\n    \"token_type\": \"Bearer\",\n    \"app_id\": \"APP-80W284485P519543T\",\n    \"expires_in\": 32400,\n    \"nonce\": \"2022-01-26T01:01:51ZJFQBVUqWihFGkxmNANbC4ikQt5_CLogQGeDy3lTaiYs\"\n}"
+        },
+        {
+          "name": "200 - Generate Token With Detailed Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token."
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "description": "The refresh token. Use to get access tokens. Use the same authorization grant as described in [OAuth2.0 RFC6749 Section 6](https://tools.ietf.org/html/rfc6749#section-6). Returns value only for `POST /token` calls with a `grant_type` of `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "description": "The authorization code that the `/login` call returns to the client to complete a user log in and get a third-party access token. Required if the `grant_type` is `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "ignoreCache",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "return_authn_schemes",
+                  "value": "true",
+                  "description": "Lists user authentication options and returns a first-party access token to authenticate an end user. Valid for all grant types except the `authzcode` authorization code, which indicates that the user is already authenticated.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_client_metadata",
+                  "value": "true",
+                  "description": "Lists client metadata attributes. Valid for all grant types.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_unconsented_scopes",
+                  "value": "true",
+                  "description": "Lists unconsented scopes between the user and client. Valid for all grant types except `client_credentials`.",
+                  "type": "text"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "",
+                  "description": "The redirection endpoint that terminates the user authorization flow. The value must be an EXACT match to the URI registered for the client during the client registration. If you pass the `target_client_id` parameter, the URI must be `target_client_id`. The out-of-band value is `urn:ietf:wg:oauth:2.0:oob`. Native apps can use the `redirect_uri` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "token",
+                  "description": "A space-separated list of token types. If the list is valid, the API returns all requested token types.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "uat",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "description": "A list of space-separated and case-sensitive scopes, or permissions, to associate with the access token. If you omit this value, the API assumes the maximum set of allowed scopes. The scopes must be one of these values:\nA subset of the scopes authorized for the client.\nConsented by the user in case of end-user scopes.\nAssociated with the refresh token, depending on the `grant_type`.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "device_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines device information. If `unbind_device` is `true`, you must include the `device_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "app_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines application information. If `unbind_device` is `true`, you must include the `app_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "risk_data",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pairs of data required by risk. You can typically obtain values through the Dyson library. Required for public clients.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_subject",
+                  "value": "",
+                  "description": "The email address or payer ID of the user for whom you want to create an access token. Required if the `grant_type` is `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier`. This kind of `/token` request comes from a legacy client without REST API credentials.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_client_id",
+                  "value": "",
+                  "description": "The client ID of the client application for which the access token is created. Because the client who makes this kind of `/bind` request is a proxy, identifies the real client application. The client ID must have the `GRANT_PROXY_CLIENT` scope to use the `target_client_id` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "partner_client_id",
+                  "value": "",
+                  "description": "The ID of the partner with permission granted by the merchant for the partner to create the access token. Required, and only relevant, if the `grant_type` is set to `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "claims[]",
+                  "value": "customer_id:A2062N462U97",
+                  "description": "The client-specific key-and-value pairs associated with the access token. You can retrieve these pairs through the security context. Use a comma (`,`) to separate the key-and-value pairs.",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "2205",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 09 Feb 2022 05:53:00 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "6a2199cbeec30",
+              "enabled": true
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"scope\": \"https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/vault/payment-tokens/readwrite https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks\",\n    \"access_token\": \"A21AALC5CWFkcA6TqNiGHfAhh3Y3LYn84SSVOhPNRfcWSR_zfrsPV0iLNDDyX7tTLt_6JpstWsvt972nsUYWx3TBU8XOoFoDQ\",\n    \"token_type\": \"Bearer\",\n    \"app_id\": \"APP-80W284485P519543T\",\n    \"expires_in\": 32400,\n    \"supported_authn_schemes\": [\n        \"email_password\",\n        \"remember_me\"\n    ],\n    \"nonce\": \"2022-02-09T05:53:00ZRcoM7FwwQCTcaZnToeIqtvup7IKFG5s8AfBjfuSGccU\",\n    \"client_metadata\": {\n        \"name\": \"postman2\",\n        \"display_name\": \"postman2-Nov-03-2021\",\n        \"logo_uri\": \"\",\n        \"scopes\": [\n            \"https://uri.paypal.com/services/payments/futurepayments\",\n            \"https://uri.paypal.com/services/invoicing\",\n            \"https://uri.paypal.com/services/vault/payment-tokens/read\",\n            \"https://uri.paypal.com/services/payments/basic\",\n            \"https://uri.paypal.com/services/disputes/read-buyer\",\n            \"https://uri.paypal.com/services/payments/realtimepayment\",\n            \"https://uri.paypal.com/services/payments/payment/authcapture\",\n            \"https://uri.paypal.com/services/disputes/update-seller\",\n            \"openid\",\n            \"https://uri.paypal.com/services/disputes/read-seller\",\n            \"https://uri.paypal.com/services/payments/refund\",\n            \"https://uri.paypal.com/web/experience/incontextxo\",\n            \"https://api.paypal.com/v1/vault/credit-card\",\n            \"Braintree:Vault\",\n            \"https://api.paypal.com/v1/payments/.*\",\n            \"https://uri.paypal.com/payments/payouts\",\n            \"https://uri.paypal.com/services/vault/payment-tokens/readwrite\",\n            \"https://api.paypal.com/v1/vault/credit-card/.*\",\n            \"https://uri.paypal.com/services/subscriptions\",\n            \"https://uri.paypal.com/services/applications/webhooks\"\n        ],\n        \"ui_type\": \"NEW\"\n    }\n}"
+        },
+        {
+          "name": "400 Bad Request - Unsupported \"response_type\"",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token."
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "description": "The refresh token. Use to get access tokens. Use the same authorization grant as described in [OAuth2.0 RFC6749 Section 6](https://tools.ietf.org/html/rfc6749#section-6). Returns value only for `POST /token` calls with a `grant_type` of `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "description": "The authorization code that the `/login` call returns to the client to complete a user log in and get a third-party access token. Required if the `grant_type` is `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "ignoreCache",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "return_authn_schemes",
+                  "value": "true",
+                  "description": "Lists user authentication options and returns a first-party access token to authenticate an end user. Valid for all grant types except the `authzcode` authorization code, which indicates that the user is already authenticated.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_client_metadata",
+                  "value": "true",
+                  "description": "Lists client metadata attributes. Valid for all grant types.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_unconsented_scopes",
+                  "value": "true",
+                  "description": "Lists unconsented scopes between the user and client. Valid for all grant types except `client_credentials`.",
+                  "type": "text"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "",
+                  "description": "The redirection endpoint that terminates the user authorization flow. The value must be an EXACT match to the URI registered for the client during the client registration. If you pass the `target_client_id` parameter, the URI must be `target_client_id`. The out-of-band value is `urn:ietf:wg:oauth:2.0:oob`. Native apps can use the `redirect_uri` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "token",
+                  "description": "A space-separated list of token types. If the list is valid, the API returns all requested token types.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "uat",
+                  "type": "text"
+                },
+                {
+                  "key": "claims[]",
+                  "value": "customer_id:A2062N462U97",
+                  "description": "The client-specific key-and-value pairs associated with the access token. You can retrieve these pairs through the security context. Use a comma (`,`) to separate the key-and-value pairs.",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "description": "A list of space-separated and case-sensitive scopes, or permissions, to associate with the access token. If you omit this value, the API assumes the maximum set of allowed scopes. The scopes must be one of these values:\nA subset of the scopes authorized for the client.\nConsented by the user in case of end-user scopes.\nAssociated with the refresh token, depending on the `grant_type`.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "device_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines device information. If `unbind_device` is `true`, you must include the `device_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "app_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines application information. If `unbind_device` is `true`, you must include the `app_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "risk_data",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pairs of data required by risk. You can typically obtain values through the Dyson library. Required for public clients.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_subject",
+                  "value": "",
+                  "description": "The email address or payer ID of the user for whom you want to create an access token. Required if the `grant_type` is `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier`. This kind of `/token` request comes from a legacy client without REST API credentials.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_client_id",
+                  "value": "",
+                  "description": "The client ID of the client application for which the access token is created. Because the client who makes this kind of `/bind` request is a proxy, identifies the real client application. The client ID must have the `GRANT_PROXY_CLIENT` scope to use the `target_client_id` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "partner_client_id",
+                  "value": "",
+                  "description": "The ID of the partner with permission granted by the merchant for the partner to create the access token. Required, and only relevant, if the `grant_type` is set to `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "103",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 09 Feb 2022 05:56:07 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "e2b208c63f6b9",
+              "enabled": true
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_request\",\n    \"error_description\": \"Current version only supports token for response_type\"\n}"
+        },
+        {
+          "name": "401 Unauthorized - Missing/Bad Client Credentials",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token."
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "description": "The refresh token. Use to get access tokens. Use the same authorization grant as described in [OAuth2.0 RFC6749 Section 6](https://tools.ietf.org/html/rfc6749#section-6). Returns value only for `POST /token` calls with a `grant_type` of `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "description": "The credential type to exchange for an access token.",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "description": "The authorization code that the `/login` call returns to the client to complete a user log in and get a third-party access token. Required if the `grant_type` is `authorization_code`.",
+                  "disabled": true
+                },
+                {
+                  "key": "ignoreCache",
+                  "value": "true",
+                  "type": "text",
+                  "description": "A new token is issued ignoring the previously issued and still not expired token."
+                },
+                {
+                  "key": "return_authn_schemes",
+                  "value": "true",
+                  "description": "Lists user authentication options and returns a first-party access token to authenticate an end user. Valid for all grant types except the `authzcode` authorization code, which indicates that the user is already authenticated.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_client_metadata",
+                  "value": "true",
+                  "description": "Lists client metadata attributes. Valid for all grant types.",
+                  "type": "text"
+                },
+                {
+                  "key": "return_unconsented_scopes",
+                  "value": "true",
+                  "description": "Lists unconsented scopes between the user and client. Valid for all grant types except `client_credentials`.",
+                  "type": "text"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "",
+                  "description": "The redirection endpoint that terminates the user authorization flow. The value must be an EXACT match to the URI registered for the client during the client registration. If you pass the `target_client_id` parameter, the URI must be `target_client_id`. The out-of-band value is `urn:ietf:wg:oauth:2.0:oob`. Native apps can use the `redirect_uri` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "token",
+                  "description": "A space-separated list of token types. If the list is valid, the API returns all requested token types.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "response_type",
+                  "value": "uat",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "claims[]",
+                  "value": "customer_id:A2062N462U97",
+                  "description": "The client-specific key-and-value pairs associated with the access token. You can retrieve these pairs through the security context. Use a comma (`,`) to separate the key-and-value pairs.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "description": "A list of space-separated and case-sensitive scopes, or permissions, to associate with the access token. If you omit this value, the API assumes the maximum set of allowed scopes. The scopes must be one of these values:\nA subset of the scopes authorized for the client.\nConsented by the user in case of end-user scopes.\nAssociated with the refresh token, depending on the `grant_type`.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "device_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines device information. If `unbind_device` is `true`, you must include the `device_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "app_info",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pair that defines application information. If `unbind_device` is `true`, you must include the `app_info` or `refresh_token` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "risk_data",
+                  "value": "",
+                  "description": "The URL-encoded key-and-value pairs of data required by risk. You can typically obtain values through the Dyson library. Required for public clients.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_subject",
+                  "value": "",
+                  "description": "The email address or payer ID of the user for whom you want to create an access token. Required if the `grant_type` is `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier`. This kind of `/token` request comes from a legacy client without REST API credentials.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "target_client_id",
+                  "value": "",
+                  "description": "The client ID of the client application for which the access token is created. Because the client who makes this kind of `/bind` request is a proxy, identifies the real client application. The client ID must have the `GRANT_PROXY_CLIENT` scope to use the `target_client_id` parameter.",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "partner_client_id",
+                  "value": "",
+                  "description": "The ID of the partner with permission granted by the merchant for the partner to create the access token. Required, and only relevant, if the `grant_type` is set to `client_credentials`, `refresh_token`, or `urn:paypal:params:oauth2:grant_type:unique_device_identifier",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token"
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "136",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "19b915a8945ce",
+              "enabled": true
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Mar 2022 02:39:36 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10040-SJC",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1647225576.940034,VS0,VE97",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"supported_authn_schemes\": [\n        \"email_password\",\n        \"remember_me\"\n    ],\n    \"error\": \"invalid_client\",\n    \"error_description\": \"Client Authentication failed\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Terminate access_token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "content-type": true
+        }
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "text"
+            },
+            {
+              "key": "token_type_hint",
+              "value": "ACCESS_TOKEN",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "grant_type",
+              "value": "refresh_token",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "refresh_token",
+              "value": "{{refresh_token}}",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "grant_type",
+              "value": "authorization_code",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "code",
+              "value": "{{authorization_code}}",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/oauth2/token/terminate",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "oauth2",
+            "token",
+            "terminate"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 - Terminate Access Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "token_type_hint",
+                  "value": "ACCESS_TOKEN",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token/terminate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token",
+                "terminate"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "plain",
+          "header": [
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 17 Feb 2022 17:59:11 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "2584a951c74e9",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "400 Bad Request - Missing Access Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "token_type_hint",
+                  "value": "ACCESS_TOKEN",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token/terminate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token",
+                "terminate"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "116",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "4600bf5cce0e9",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 05 Apr 2023 17:33:28 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-kigq8000129-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1680716008.127570,VS0,VE209",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Both the access token and device information were missing or invalid\"\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "token_type_hint",
+                  "value": "ACCESS_TOKEN",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "{{authorization_code}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/oauth2/token/terminate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "oauth2",
+                "token",
+                "terminate"
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "ad750a9c25505",
+              "enabled": true
+            },
+            {
+              "key": "X-Paypal-Token-Service",
+              "value": "IAAS",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 05 Apr 2023 17:31:51 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-kigq8000129-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1680715911.153051,VS0,VE260",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "User Info",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Request-Id",
+            "value": "{{$guid}}",
+            "type": "text",
+            "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Client-Metadata-Id",
+            "value": "{{paypal_client_metadata_Id}}",
+            "type": "text",
+            "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Partner-Attribution-Id",
+            "value": "{{paypal_partner_attribution_id}}",
+            "type": "text",
+            "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Auth-Assertion",
+            "value": "{{paypal_auth_assertion}}",
+            "type": "text",
+            "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_detailed}}",
+            "type": "text",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_minimal}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/identity/oauth2/userinfo?schema=paypalv1.1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "identity",
+            "oauth2",
+            "userinfo"
+          ],
+          "query": [
+            {
+              "key": "schema",
+              "value": "paypalv1.1",
+              "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`."
+            }
+          ]
+        },
+        "description": "Shows user profile information. Filters the response by a schema. Supported schema value is `paypalv1.1`."
+      },
+      "response": [
+        {
+          "name": "200 - Show User Profile Information",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/identity/oauth2/userinfo?schema=paypalv1.1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "oauth2",
+                "userinfo"
+              ],
+              "query": [
+                {
+                  "key": "schema",
+                  "value": "paypalv1.1",
+                  "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`."
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "1bdac877a5615",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 02 Feb 2022 00:29:05 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10070-SJC",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1643761745.386139,VS0,VE452",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            },
+            {
+              "key": "content-encoding",
+              "value": "br",
+              "enabled": true
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"user_id\": \"https://www.paypal.com/webapps/auth/identity/user/JkswKSOc6jJ3wtm9cmnmqqvIJJ-MF46WF707PEYTcEs\",\n    \"sub\": \"https://www.paypal.com/webapps/auth/identity/user/JkswKSOc6jJ3wtm9cmnmqqvIJJ-MF46WF707PEYTcEs\"\n}"
+        },
+        {
+          "name": "400 Bad Request - Missing Schema",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/identity/oauth2/userinfo",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "oauth2",
+                "userinfo"
+              ],
+              "query": [
+                {
+                  "key": "schema",
+                  "value": "paypalv1.1",
+                  "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "77",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "88997d66f52b3",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 02 Feb 2022 00:30:42 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10070-SJC",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1643761843.693166,VS0,VE57",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_request\",\n    \"error_description\": \"Invalid schema request null\"\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/identity/oauth2/userinfo?schema=paypalv1.1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "oauth2",
+                "userinfo"
+              ],
+              "query": [
+                {
+                  "key": "schema",
+                  "value": "paypalv1.1",
+                  "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`."
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "6ddedd2e62c7d",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 06 Apr 2023 21:53:28 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100077-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1680818008.478253,VS0,VE158",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        },
+        {
+          "name": "401 Unauthorized - Insufficient Authentication Level Token",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/identity/oauth2/userinfo?schema=paypalv1.1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "oauth2",
+                "userinfo"
+              ],
+              "query": [
+                {
+                  "key": "schema",
+                  "value": "paypalv1.1",
+                  "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`."
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "110",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "bf79239a9b83d",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 01 Mar 2022 02:17:56 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10072-SJC",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1646101076.438023,VS0,VE81",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"The token passed does not have sufficient authentication level\"\n}"
+        },
+        {
+          "name": "429 Too Many Requests - Blocked Due To Rate Limiting",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/identity/oauth2/userinfo?schema=paypalv1.1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "oauth2",
+                "userinfo"
+              ],
+              "query": [
+                {
+                  "key": "schema",
+                  "value": "paypalv1.1",
+                  "description": "(Required) Filters the response by a schema. Supported value is `paypalv1.1`."
+                }
+              ]
+            }
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "135",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.18.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "1d79b10468ef9",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 01 Mar 2022 02:12:11 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10072-SJC",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1646100732.847870,VS0,VE30",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"RATE_LIMIT_REACHED\",\n    \"message\": \"Too many requests. Blocked due to rate limiting.\",\n    \"debugId\": \"1d79b10468ef9\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Generate client_token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"customer_id\": \"{{$timestamp}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/identity/generate-token",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "identity",
+            "generate-token"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 - Generate Client Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/identity/generate-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "generate-token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "3349",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 17 Feb 2022 17:56:14 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Application_id",
+              "value": "APP-80W284485P519543T",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Caller_acct_num",
+              "value": "ER87FV8ER63HJ",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "df8a1e21f64e6",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"client_token\": \"eyJicmFpbnRyZWUiOnsiYXV0aG9yaXphdGlvbkZpbmdlcnByaW50IjoiZjUyZWFhN2QxYjg3YWNiOThlNDNlY2ViNjg1MGNjZGFiMGRiOTFkY2QwNjYyOTVjOTNjMjM4NjVhMDE4NTUzNXxtZXJjaGFudF9pZD1yd3dua3FnMnhnNTZobTJuJnB1YmxpY19rZXk9NjNrdm4zN3Z0MjlxYjRkZiZjcmVhdGVkX2F0PTIwMjItMDItMTdUMTc6NTY6MTQuNDUxWiIsInZlcnNpb24iOiIzLXBheXBhbCJ9LCJwYXlwYWwiOnsiaWRUb2tlbiI6ImV5SnJhV1FpT2lKbE5EQTJOakE0WWpVMFlUazBORGd4WWprMVl6YzFOREkwT0dOak1USXpaaUlzSW5SNWNDSTZJa3BYVkNJc0ltRnNaeUk2SWxKVE1qVTJJbjAuZXlKcGMzTWlPaUpvZEhSd2N6b3ZMMkZ3YVM1ellXNWtZbTk0TG5CaGVYQmhiQzVqYjIwaUxDSmhkRjlvWVhOb0lqb2lkRVJLYm1sVWJUWkRTRVIwYWxsNlFrTmtibTFHVVNJc0luSnZiR1VpT2lKTlJWSkRTRUZPVkNJc0luTmxjM05wYjI1ZmFXNWtaWGdpT2lJMGRUbFNMVzFKZFhocGNYSmhVakl4UjJWQ2RFTm5UVFpRUm0waUxDSmpiR2xsYm5SZmFXUWlPaUpCVlVNeFEzZFZTWFExV0VSc05FdGpiemt0YjFoalpYZHJNR3BhWWxCSmVFUnpNVXBYU0VSNlFWUk9VMjVaVlRNMmVHNVVkRk13VkhBdE5HdEViRU53WjBOaWNIVmtXR05UZEdNNFNFRnpWaUlzSW1GamNpSTZXeUpqYkdsbGJuUWlYU3dpWVhWa0lqb2lRVlZETVVOM1ZVbDBOVmhFYkRSTFkyODVMVzlZWTJWM2F6QnFXbUpRU1hoRWN6RktWMGhFZWtGVVRsTnVXVlV6Tm5odVZIUlRNRlJ3TFRSclJHeERjR2REWW5CMVpGaGpVM1JqT0VoQmMxWWlMQ0poZFhSb1gzUnBiV1VpT2pFMk5EVXhNakExTnpRc0ltRjZJam9pWjJOd0xuTnNZeUlzSW5OamIzQmxjeUk2V3lKQ2NtRnBiblJ5WldVNlZtRjFiSFFpWFN3aVpYaHdJam94TmpRMU1USXhORGMwTENKcFlYUWlPakUyTkRVeE1qQTFOelFzSW1wMGFTSTZJbFV5UVVGSk1IaG9UekoyTFdsMmJFSkJiMmN4ZG5ocVNrVllSelJPWkZGalJsSXpiVGRCT0VWRFkwSTBRVGh6T0daME1XWlBXbmMxVG5WTVlrczRTa0V4VmpKNGFGZGtOQzFEYTJ0UVRITkRUemxQYjBzNGFteHlTWFJaYlhFMk9VczBVeTFFTnpaUVRsVXROakF0Vm10RVpWQkVWVWh6WW1WTU5GTnROMnAzSW4wLkN4ZWQ5aWtjdGhObDI0SHY1MjN2NlhiTmY5U2FyVFJyeTZZTzJHVTBDcE1UMFhuVzF1M1doNTF2dTh2d3VtNnkwdVF5cGhSTi1XeXZIZUx3X1NXeTNJR1FSUW9ja0FHUTJQYlF3SW9HMTd6dWV6Sk5OMU5NZEtWU2o5dTltZEtZdmFZWGNWTUJwS29GbGktS1RseGpXOXhpVUF5ZUJXQlE0OE5PVE9xMGNuVDJ3SFgxc0E0cy1mYndpYzFEc3g2ekZHNlFkSDQzZ1cta0YwU09TUGpxbXRuNlQ1R0hiNVljOWpUMENlUGlFaHVVOUxyWThoejhNcmlSYmt1UUU1QmNyMFJIM1hKTkhNaXRTbkZxd0h4THp6Y1pOakhrZXJ1YkRYc0NDaFVVUnhEZ2dTcEkxOTFCbnY3T3dkek9ocXppLXoxMVA1bHNfNm5pejFTUExNMXJKQSIsImFjY2Vzc1Rva2VuIjoiQTIxQUFKbVQzX1RrS0J6aGJES1Y5R1FEemJNLXduTzdvSGJROFJrV3lDemoyWDY1TzZ1UU1fc01QS0ptWFVRUXEtUGM1cjNuMHFIMkZWcGZoLW1aampKbENUTEtYYmpXdyJ9fQ==\",\n    \"id_token\": \"eyJraWQiOiJlNDA2NjA4YjU0YTk0NDgxYjk1Yzc1NDI0OGNjMTIzZiIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL2FwaS5zYW5kYm94LnBheXBhbC5jb20iLCJhdF9oYXNoIjoidERKbmlUbTZDSER0all6QkNkbm1GUSIsInJvbGUiOiJNRVJDSEFOVCIsInNlc3Npb25faW5kZXgiOiI0dTlSLW1JdXhpcXJhUjIxR2VCdENnTTZQRm0iLCJjbGllbnRfaWQiOiJBVUMxQ3dVSXQ1WERsNEtjbzktb1hjZXdrMGpaYlBJeERzMUpXSER6QVROU25ZVTM2eG5UdFMwVHAtNGtEbENwZ0NicHVkWGNTdGM4SEFzViIsImFjciI6WyJjbGllbnQiXSwiYXVkIjoiQVVDMUN3VUl0NVhEbDRLY285LW9YY2V3azBqWmJQSXhEczFKV0hEekFUTlNuWVUzNnhuVHRTMFRwLTRrRGxDcGdDYnB1ZFhjU3RjOEhBc1YiLCJhdXRoX3RpbWUiOjE2NDUxMjA1NzQsImF6IjoiZ2NwLnNsYyIsInNjb3BlcyI6WyJCcmFpbnRyZWU6VmF1bHQiXSwiZXhwIjoxNjQ1MTIxNDc0LCJpYXQiOjE2NDUxMjA1NzQsImp0aSI6IlUyQUFJMHhoTzJ2LWl2bEJBb2cxdnhqSkVYRzROZFFjRlIzbTdBOEVDY0I0QThzOGZ0MWZPWnc1TnVMYks4SkExVjJ4aFdkNC1Da2tQTHNDTzlPb0s4amxySXRZbXE2OUs0Uy1ENzZQTlUtNjAtVmtEZVBEVUhzYmVMNFNtN2p3In0.Cxed9ikcthNl24Hv523v6XbNf9SarTRry6YO2GU0CpMT0XnW1u3Wh51vu8vwum6y0uQyphRN-WyvHeLw_SWy3IGQRQockAGQ2PbQwIoG17zuezJNN1NMdKVSj9u9mdKYvaYXcVMBpKoFli-KTlxjW9xiUAyeBWBQ48NOTOq0cnT2wHX1sA4s-fbwic1Dsx6zFG6QdH43gW-kF0SOSPjqmtn6T5GHb5Yc9jT0CePiEhuU9LrY8hz8MriRbkuQE5Bcr0RH3XJNHMitSnFqwHxLzzcZNjHkerubDXsCChUURxDggSpI191Bnv7OwdzOhqzi-z11P5ls_6niz1SPLM1rJA\",\n    \"expires_in\": 3600\n}"
+        },
+        {
+          "name": "200 - Generate Client Token For Specific Customer ID",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_id\": \"{{$timestamp}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/identity/generate-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "generate-token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "3712",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 17 Feb 2022 17:56:50 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Application_id",
+              "value": "APP-80W284485P519543T",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Caller_acct_num",
+              "value": "ER87FV8ER63HJ",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "ca1626be0a5d",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"client_token\": \"eyJicmFpbnRyZWUiOnsiYXV0aG9yaXphdGlvbkZpbmdlcnByaW50IjoiMjk2Yzc5ZTRlMTQ4OGViOGRmZjJiM2I4ODU3ODJlMGVhM2E2MWJiZmNiOTNhMTc2MjRiODJiOGQ3NDE2ODM1ZnxtZXJjaGFudF9pZD1yd3dua3FnMnhnNTZobTJuJnB1YmxpY19rZXk9NjNrdm4zN3Z0MjlxYjRkZiZjcmVhdGVkX2F0PTIwMjItMDItMTdUMTc6NTY6NTAuMzU2WiZjdXN0b21lcl9pZD0xNjQ1MTIwNjEwIiwidmVyc2lvbiI6IjMtcGF5cGFsIn0sInBheXBhbCI6eyJpZFRva2VuIjoiZXlKcmFXUWlPaUpsTkRBMk5qQTRZalUwWVRrME5EZ3hZamsxWXpjMU5ESTBPR05qTVRJelppSXNJblI1Y0NJNklrcFhWQ0lzSW1Gc1p5STZJbEpUTWpVMkluMC5leUpwYzNNaU9pSm9kSFJ3Y3pvdkwyRndhUzV6WVc1a1ltOTRMbkJoZVhCaGJDNWpiMjBpTENKaGRGOW9ZWE5vSWpvaVRVeEZUVEZQUm14UVJrNXVRMEZrZFRkU2RsSkhVU0lzSW5KdmJHVWlPaUpOUlZKRFNFRk9WQ0lzSW1WNGRHVnlibUZzWDJsa0lqcGJJbEJoZVZCaGJEcEZVamczUmxZNFJWSTJNMGhLSWl3aVFuSmhhVzUwY21WbE9tUnpjalUxZVRscmNIQTJaM2x3ZERJaVhTd2ljMlZ6YzJsdmJsOXBibVJsZUNJNklqbHlWbEJJU1ZvNVpFRjRjemg1Y0VKSWRscEdVbW80YjNsM01DSXNJbU5zYVdWdWRGOXBaQ0k2SWtGVlF6RkRkMVZKZERWWVJHdzBTMk52T1MxdldHTmxkMnN3YWxwaVVFbDRSSE14U2xkSVJIcEJWRTVUYmxsVk16WjRibFIwVXpCVWNDMDBhMFJzUTNCblEySndkV1JZWTFOMFl6aElRWE5XSWl3aVlXTnlJanBiSW1Oc2FXVnVkQ0pkTENKaGRXUWlPaUpCVlVNeFEzZFZTWFExV0VSc05FdGpiemt0YjFoalpYZHJNR3BhWWxCSmVFUnpNVXBYU0VSNlFWUk9VMjVaVlRNMmVHNVVkRk13VkhBdE5HdEViRU53WjBOaWNIVmtXR05UZEdNNFNFRnpWaUlzSW1GMWRHaGZkR2x0WlNJNk1UWTBOVEV5TURZeE1Dd2liM0IwYVc5dWN5STZleUpqZFhOMGIyMWxjbDlwWkNJNklqRTJORFV4TWpBMk1UQWlmU3dpWVhvaU9pSm5ZM0F1YzJ4aklpd2ljMk52Y0dWeklqcGJJa0p5WVdsdWRISmxaVHBXWVhWc2RDSmRMQ0psZUhBaU9qRTJORFV4TWpFMU1UQXNJbWxoZENJNk1UWTBOVEV5TURZeE1Dd2lhblJwSWpvaVZUSkJRVXhuYzJKcFgyMHlRMGx3YzNKdldWcHdSalZ5WjBSeFMzZHBha2M0UjNWUGNVZGFNbVk0TWxsSWRGVmxkMjVQZWtORk16WnVaazA0WTJ0dmR6ZzBVWFZoTTJGaFpXTkVOMjAyVGtSZmJrdFpSVGhCYm1wSVdrMVBZemRTVjJSSGNsWjBWRFpwZUhabGR6aHpjMVJSYTNsckxVNWtSQzFtYkVsbFRXY2lmUS5ZU05TQnhlNUs1ZlFrd29aaXJJOUZxQ1pjaEZIOURfdkNlSUFNZWpIeXZFVlFucFUyZEF4YUtZdmVWRlQ3MjdQc0NvV2FwR2Fvai1lRHIzbEJSbm5PNHc2bi1aMFFFXzdOM2h4MjR1bFliSXloUm5adkxyVEdIU29VTUMtek5wRExJNW9BVlBDWWNsT2t5STJBbzR0Sy1EUWtLWmJUUnZfYkluOXBaYjRuR3BwTldtVVJ0bUVkMnhNQUZKMkdUcHBHcW9sdHlvamNqNzItNy04Mjk2cWF6b3ZUbWRsZHpnbzd3OXNFQWl2VEZYSzZxMnFxMzh1Z3ZGNVUtejdTekRpR3I3QzVSemdQSmZ0YXowTUdQUUFJWkJOZnBqc2JTQ3hGajU4Z0tYLTU1RWJoVldIWklvVldKSU5HTm1WWFpEZ2VQaG1ZMXdPYnhYc3N0b2pCZDB4VVEiLCJhY2Nlc3NUb2tlbiI6IkEyMUFBSTZzS0ZGbnpMVUxXVEhFZ01UaTFkSk1nSDU4djJCbEctVlhWVHpVMGNITkJxOThfWlpjUnRmTkNRZUJuZ2VPY2RFOFJPMnN6RjlSeE81NEJhZW1hbzhVVWxNNkEifX0=\",\n    \"id_token\": \"eyJraWQiOiJlNDA2NjA4YjU0YTk0NDgxYjk1Yzc1NDI0OGNjMTIzZiIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL2FwaS5zYW5kYm94LnBheXBhbC5jb20iLCJhdF9oYXNoIjoiTUxFTTFPRmxQRk5uQ0FkdTdSdlJHUSIsInJvbGUiOiJNRVJDSEFOVCIsImV4dGVybmFsX2lkIjpbIlBheVBhbDpFUjg3RlY4RVI2M0hKIiwiQnJhaW50cmVlOmRzcjU1eTlrcHA2Z3lwdDIiXSwic2Vzc2lvbl9pbmRleCI6IjlyVlBISVo5ZEF4czh5cEJIdlpGUmo4b3l3MCIsImNsaWVudF9pZCI6IkFVQzFDd1VJdDVYRGw0S2NvOS1vWGNld2swalpiUEl4RHMxSldIRHpBVE5TbllVMzZ4blR0UzBUcC00a0RsQ3BnQ2JwdWRYY1N0YzhIQXNWIiwiYWNyIjpbImNsaWVudCJdLCJhdWQiOiJBVUMxQ3dVSXQ1WERsNEtjbzktb1hjZXdrMGpaYlBJeERzMUpXSER6QVROU25ZVTM2eG5UdFMwVHAtNGtEbENwZ0NicHVkWGNTdGM4SEFzViIsImF1dGhfdGltZSI6MTY0NTEyMDYxMCwib3B0aW9ucyI6eyJjdXN0b21lcl9pZCI6IjE2NDUxMjA2MTAifSwiYXoiOiJnY3Auc2xjIiwic2NvcGVzIjpbIkJyYWludHJlZTpWYXVsdCJdLCJleHAiOjE2NDUxMjE1MTAsImlhdCI6MTY0NTEyMDYxMCwianRpIjoiVTJBQUxnc2JpX20yQ0lwc3JvWVpwRjVyZ0RxS3dpakc4R3VPcUdaMmY4MllIdFVld25PekNFMzZuZk04Y2tvdzg0UXVhM2FhZWNEN202TkRfbktZRThBbmpIWk1PYzdSV2RHclZ0VDZpeHZldzhzc1RRa3lrLU5kRC1mbEllTWcifQ.YSNSBxe5K5fQkwoZirI9FqCZchFH9D_vCeIAMejHyvEVQnpU2dAxaKYveVFT727PsCoWapGaoj-eDr3lBRnnO4w6n-Z0QE_7N3hx24ulYbIyhRnZvLrTGHSoUMC-zNpDLI5oAVPCYclOkyI2Ao4tK-DQkKZbTRv_bIn9pZb4nGppNWmURtmEd2xMAFJ2GTppGqoltyojcj72-7-8296qazovTmdldzgo7w9sEAivTFXK6q2qq38ugvF5U-z7SzDiGr7C5RzgPJftaz0MGPQAIZBNfpjsbSCxFj58gKX-55EbhVWHZIoVWJINGNmVXZDgePhmY1wObxXsstojBd0xUQ\",\n    \"expires_in\": 3600\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_id\": \"{{$timestamp}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/identity/generate-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "identity",
+                "generate-token"
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "82ceba7ef951e",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 06 Apr 2023 22:02:30 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100077-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1680818551.710604,VS0,VE127",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        }
+      ]
+    }
+  ]
+}

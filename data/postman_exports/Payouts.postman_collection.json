@@ -1,0 +1,2124 @@
+{
+  "info": {
+    "_postman_id": "8393b6e0-6202-4063-9fd4-7f87ae00faaa",
+    "name": "Payouts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30269281",
+    "_collection_link": "https://go.postman.co/collection/43216670-8393b6e0-6202-4063-9fd4-7f87ae00faaa?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create batch payout",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+            "type": "text"
+          },
+          {
+            "key": "PayPal-Request-Id",
+            "value": "{{$guid}}",
+            "description": "The server stores keys for 30 days.",
+            "type": "text"
+          },
+          {
+            "key": "PayPal-Client-Metadata-Id",
+            "value": "{{paypal_client_metadata_Id}}",
+            "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Partner-Attribution-Id",
+            "value": "{{paypal_partner_attribution_id}}",
+            "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Auth-Assertion",
+            "value": "{{paypal_auth_assertion}}",
+            "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_detailed}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_minimal}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"Payouts_{{$timestamp}}\",\n        \"email_subject\": \"You have a payout!\",\n        \"email_message\": \"You have received a payout! Thanks for using our service!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"10.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"{{$randomEmail}}\",\n            \"notification_language\": \"en-US\"\n        },\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"20.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your support!\",\n            \"sender_item_id\": \"201403140002\",\n            \"receiver\": \"1-{{$randomPhoneNumber}}\"\n        },\n        {\n            \"recipient_type\": \"PAYPAL_ID\",\n            \"amount\": {\n                \"value\": \"30.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140003\",\n            \"receiver\": \"5DEJUG27PZB9J\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/payments/payouts",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "payments",
+            "payouts"
+          ]
+        },
+        "description": "Creates a batch payout. In the JSON request body, pass a `sender_batch_header` and an `items` array. The `sender_batch_header` defines how to handle the payout. The `items` array defines the payout items.<br/>You can make payouts to one or more recipients.<blockquote><strong>Notes:</strong> <ul><li><p>PayPal does not process duplicate payouts. If you specify a <code>sender_batch_id</code> that was used in the last 30 days, the API rejects the request with an error message that shows the duplicate <code>sender_batch_id</code> and includes a HATEOAS link to the original payout with the same <code>sender_batch_id</code>.</p><p>If you receive an HTTP <code>5<i>nn</i></code> status code, you can safely retry the request with the same <code>sender_batch_id</code>.</p></li><li><p>The Payouts API does not support build notation (BN) codes. In a future Payouts release, you can optionally provide BN codes in the <code>PayPal-Partner-Attribution-Id</code> request header.</p><p>For information about the <code>PayPal-Partner-Attribution-Id</code> header, see <a href=\"https://developer.paypal.com/api/rest/requests/#http-request-headers\">HTTP request headers</a>. To learn about or request a BN code, contact your partner manager or see <a href=\"https://www.paypal.com/us/webapps/mpp/partner-program\">PayPal Partner Program</a>.</p></li></ul></blockquote>"
+      },
+      "response": [
+        {
+          "name": "201 - Create Batch Payout",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 30 days."
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"Payouts_{{$timestamp}}\",\n        \"email_subject\": \"You have a payout!\",\n        \"email_message\": \"You have received a payout! Thanks for using our service!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"10.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"{{$randomEmail}}\",\n            \"notification_language\": \"en-US\"\n        },\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"20.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your support!\",\n            \"sender_item_id\": \"201403140002\",\n            \"receiver\": \"1-{{$randomPhoneNumber}}\"\n        },\n        {\n            \"recipient_type\": \"PAYPAL_ID\",\n            \"amount\": {\n                \"value\": \"30.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140003\",\n            \"receiver\": \"G83KXTJ5EHCQ2\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "396",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "7d9236fa975e6",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:16:44 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100171-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681157804.162633,VS0,VE348",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"batch_header\": {\n        \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n        \"batch_status\": \"PENDING\",\n        \"sender_batch_header\": {\n            \"sender_batch_id\": \"Payouts_1681157804\",\n            \"email_subject\": \"You have a payout!\",\n            \"email_message\": \"You have received a payout! Thanks for using our service!\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts/MJ77GF8MQ2TF6\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "400 Bad Request - Sender Batch ID Already Exists",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 30 days."
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"Payouts_1681157804\",\n        \"email_subject\": \"You have a payout!\",\n        \"email_message\": \"You have received a payout! Thanks for using our service!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"10.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"{{$randomEmail}}\",\n            \"notification_language\": \"en-US\"\n        },\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"20.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your support!\",\n            \"sender_item_id\": \"201403140002\",\n            \"receiver\": \"1-{{$randomPhoneNumber}}\"\n        },\n        {\n            \"recipient_type\": \"PAYPAL_ID\",\n            \"amount\": {\n                \"value\": \"30.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140003\",\n            \"receiver\": \"G83KXTJ5EHCQ2\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "449",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "2f263c6c20e38",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:34:08 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158848.494773,VS0,VE281",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"USER_BUSINESS_ERROR\",\n    \"message\": \"User business error.\",\n    \"debug_id\": \"2f263c6c20e38\",\n    \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n    \"details\": [\n        {\n            \"field\": \"SENDER_BATCH_ID\",\n            \"location\": \"body\",\n            \"issue\": \"Batch with given sender_batch_id already exists\",\n            \"link\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts/MJ77GF8MQ2TF6\",\n                    \"rel\": \"self\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        }\n    ],\n    \"links\": []\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 30 days."
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"Payouts_{{$timestamp}}\",\n        \"email_subject\": \"You have a payout!\",\n        \"email_message\": \"You have received a payout! Thanks for using our service!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"10.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"{{$randomEmail}}\",\n            \"notification_language\": \"en-US\"\n        },\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"20.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your support!\",\n            \"sender_item_id\": \"201403140002\",\n            \"receiver\": \"1-{{$randomPhoneNumber}}\"\n        },\n        {\n            \"recipient_type\": \"PAYPAL_ID\",\n            \"amount\": {\n                \"value\": \"30.00\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140003\",\n            \"receiver\": \"G83KXTJ5EHCQ2\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts"
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "4385abe07bbff",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:12:48 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100171-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681157569.607825,VS0,VE133",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show payout batch details",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Request-Id",
+            "value": "{{$guid}}",
+            "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Client-Metadata-Id",
+            "value": "{{paypal_client_metadata_Id}}",
+            "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Partner-Attribution-Id",
+            "value": "{{paypal_partner_attribution_id}}",
+            "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Auth-Assertion",
+            "value": "{{paypal_auth_assertion}}",
+            "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_detailed}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_minimal}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/payments/payouts/:payout_batch_id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "payments",
+            "payouts",
+            ":payout_batch_id"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "amet commodo incididunt aute minim",
+              "description": "Shows details for only the specified fields.",
+              "disabled": true
+            },
+            {
+              "key": "page",
+              "value": "1",
+              "description": "A non-zero integer representing the page of the results.",
+              "disabled": true
+            },
+            {
+              "key": "page_size",
+              "value": "39318774",
+              "description": "The maximum number of results to return at one time. Value is a non-negative, non-zero integer. If the user chooses pagination, the maximum page is `1000`.",
+              "disabled": true
+            },
+            {
+              "key": "total_required",
+              "value": "false",
+              "description": "Indicates whether to show the total items and total pages count in the response.",
+              "disabled": true
+            }
+          ],
+          "variable": [
+            {
+              "key": "payout_batch_id",
+              "value": "{{payout_batch_id}}",
+              "description": "(Required) The ID of the payout for which to show details."
+            }
+          ]
+        },
+        "description": "Shows the latest status of a batch payout. Includes the transaction status and other data for individual payout items."
+      },
+      "response": [
+        {
+          "name": "200 - Show Payout Batch Details",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts/:payout_batch_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts",
+                ":payout_batch_id"
+              ],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "amet commodo incididunt aute minim",
+                  "description": "Shows details for only the specified fields.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "A non-zero integer representing the page of the results.",
+                  "disabled": true
+                },
+                {
+                  "key": "page_size",
+                  "value": "39318774",
+                  "description": "The maximum number of results to return at one time. Value is a non-negative, non-zero integer. If the user chooses pagination, the maximum page is `1000`.",
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "false",
+                  "description": "Indicates whether to show the total items and total pages count in the response.",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "payout_batch_id",
+                  "value": "{{payout_batch_id}}",
+                  "description": "(Required) The ID of the payout for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "2c08b0a68069",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:27:18 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158438.385116,VS0,VE219",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            },
+            {
+              "key": "content-encoding",
+              "value": "br",
+              "enabled": true
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"batch_header\": {\n        \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n        \"batch_status\": \"SUCCESS\",\n        \"time_created\": \"2023-04-10T20:16:44Z\",\n        \"time_completed\": \"2023-04-10T20:16:45Z\",\n        \"sender_batch_header\": {\n            \"sender_batch_id\": \"Payouts_1681157804\",\n            \"email_subject\": \"You have a payout!\",\n            \"email_message\": \"You have received a payout! Thanks for using our service!\"\n        },\n        \"funding_source\": \"BALANCE\",\n        \"amount\": {\n            \"currency\": \"USD\",\n            \"value\": \"60.00\"\n        },\n        \"fees\": {\n            \"currency\": \"USD\",\n            \"value\": \"0.50\"\n        }\n    },\n    \"items\": [\n        {\n            \"payout_item_id\": \"CX64X3KPCVYLC\",\n            \"transaction_id\": \"4XH44110EC095525K\",\n            \"activity_id\": \"0KJ317812H109105P\",\n            \"transaction_status\": \"UNCLAIMED\",\n            \"payout_item_fee\": {\n                \"currency\": \"USD\",\n                \"value\": \"0.25\"\n            },\n            \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n            \"payout_item\": {\n                \"recipient_type\": \"EMAIL\",\n                \"amount\": {\n                    \"currency\": \"USD\",\n                    \"value\": \"10.00\"\n                },\n                \"note\": \"Thanks for your patronage!\",\n                \"receiver\": \"Coleman_Mohr@hotmail.com\",\n                \"sender_item_id\": \"201403140001\",\n                \"recipient_wallet\": \"PAYPAL\"\n            },\n            \"time_processed\": \"2023-04-10T20:16:45Z\",\n            \"errors\": {\n                \"name\": \"RECEIVER_UNREGISTERED\",\n                \"message\": \"The recipient for this payout does not have an account. A link to sign up for an account was sent to the recipient. However, if the recipient does not claim this payout within 30 days, the funds will be returned to your account.\",\n                \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n                \"details\": [],\n                \"links\": []\n            },\n            \"links\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts-item/CX64X3KPCVYLC\",\n                    \"rel\": \"item\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        },\n        {\n            \"payout_item_id\": \"S697W7QJMAEX4\",\n            \"transaction_id\": \"0FY48488BY887313U\",\n            \"activity_id\": \"53C6543893640342P\",\n            \"transaction_status\": \"UNCLAIMED\",\n            \"payout_item_fee\": {\n                \"currency\": \"USD\",\n                \"value\": \"0.25\"\n            },\n            \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n            \"payout_item\": {\n                \"recipient_type\": \"PHONE\",\n                \"amount\": {\n                    \"currency\": \"USD\",\n                    \"value\": \"20.00\"\n                },\n                \"note\": \"Thanks for your support!\",\n                \"receiver\": \"15562941698\",\n                \"sender_item_id\": \"201403140002\",\n                \"recipient_wallet\": \"PAYPAL\"\n            },\n            \"time_processed\": \"2023-04-10T20:16:45Z\",\n            \"errors\": {\n                \"name\": \"RECEIVER_UNREGISTERED\",\n                \"message\": \"The recipient for this payout does not have an account. A link to sign up for an account was sent to the recipient. However, if the recipient does not claim this payout within 30 days, the funds will be returned to your account.\",\n                \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n                \"details\": [],\n                \"links\": []\n            },\n            \"links\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts-item/S697W7QJMAEX4\",\n                    \"rel\": \"item\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        },\n        {\n            \"payout_item_id\": \"J64P4FHTAY7UN\",\n            \"transaction_status\": \"FAILED\",\n            \"payout_item_fee\": {\n                \"currency\": \"USD\",\n                \"value\": \"0.00\"\n            },\n            \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n            \"payout_item\": {\n                \"recipient_type\": \"PAYPAL_ID\",\n                \"amount\": {\n                    \"currency\": \"USD\",\n                    \"value\": \"30.00\"\n                },\n                \"note\": \"Thanks for your patronage!\",\n                \"receiver\": \"G83KXTJ5EHCQ2\",\n                \"sender_item_id\": \"201403140003\",\n                \"recipient_wallet\": \"PAYPAL\"\n            },\n            \"errors\": {\n                \"name\": \"RECEIVER_ACCOUNT_INVALID\",\n                \"message\": \"Receiver's account is invalid.\",\n                \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n                \"details\": [],\n                \"links\": []\n            },\n            \"links\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts-item/J64P4FHTAY7UN\",\n                    \"rel\": \"item\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts/MJ77GF8MQ2TF6?page_size=1000&page=1\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts/:payout_batch_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts",
+                ":payout_batch_id"
+              ],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "amet commodo incididunt aute minim",
+                  "description": "Shows details for only the specified fields.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "A non-zero integer representing the page of the results.",
+                  "disabled": true
+                },
+                {
+                  "key": "page_size",
+                  "value": "39318774",
+                  "description": "The maximum number of results to return at one time. Value is a non-negative, non-zero integer. If the user chooses pagination, the maximum page is `1000`.",
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "false",
+                  "description": "Indicates whether to show the total items and total pages count in the response.",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "payout_batch_id",
+                  "value": "{{payout_batch_id}}",
+                  "description": "(Required) The ID of the payout for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "9454f64296e7b",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:56:40 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-kigq8000033-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681160200.278723,VS0,VE163",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        },
+        {
+          "name": "404 Not Found - Payout Batch Not Found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts/:payout_batch_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts",
+                ":payout_batch_id"
+              ],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "amet commodo incididunt aute minim",
+                  "description": "Shows details for only the specified fields.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "A non-zero integer representing the page of the results.",
+                  "disabled": true
+                },
+                {
+                  "key": "page_size",
+                  "value": "39318774",
+                  "description": "The maximum number of results to return at one time. Value is a non-negative, non-zero integer. If the user chooses pagination, the maximum page is `1000`.",
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "false",
+                  "description": "Indicates whether to show the total items and total pages count in the response.",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "payout_batch_id",
+                  "value": "MJ77GF8MQ2TAB",
+                  "description": "(Required) The ID of the payout for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "223",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "3037e4254c9d8",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:28:06 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158486.230633,VS0,VE217",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_RESOURCE_ID\",\n    \"message\": \"The requested resource ID was not found\",\n    \"debug_id\": \"3037e4254c9d8\",\n    \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n    \"details\": [],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show payout item details",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "payments",
+            "payouts-item",
+            ":payout_item_id"
+          ],
+          "variable": [
+            {
+              "key": "payout_item_id",
+              "value": "{{payout_item_id}}",
+              "description": "(Required) The ID of the payout item for which to show details."
+            }
+          ]
+        },
+        "description": "Shows details for a payout item, by ID. A <code>payout_item_id</code> helps you identify denied payments. If a payment is denied, you can use the <code>payout_item_id</code> to identify the payment even if it lacks a <code>transaction_id</code>."
+      },
+      "response": [
+        {
+          "name": "200 - Show Payout Item Details",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "{{payout_item_id}}",
+                  "description": "(Required) The ID of the payout item for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "1193",
+              "enabled": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 02 Feb 2022 06:49:54 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Application_id",
+              "value": "APP-80W284485P519543T",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Caller_acct_num",
+              "value": "ER87FV8ER63HJ",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "8086834ce7b2b",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"payout_item_id\": \"4FNYP6JKEW28S\",\n    \"transaction_id\": \"7S520406M51625248\",\n    \"activity_id\": \"9MA543628Y061272E\",\n    \"transaction_status\": \"UNCLAIMED\",\n    \"payout_item_fee\": {\n        \"currency\": \"USD\",\n        \"value\": \"0.25\"\n    },\n    \"payout_batch_id\": \"42WWRAXUXYSQQ\",\n    \"sender_batch_id\": \"Payouts_1643784368\",\n    \"payout_item\": {\n        \"recipient_type\": \"EMAIL\",\n        \"amount\": {\n            \"currency\": \"USD\",\n            \"value\": \"10.00\"\n        },\n        \"note\": \"Thanks for your patronage!\",\n        \"receiver\": \"Barry4@yahoo.com\",\n        \"sender_item_id\": \"201403140001\",\n        \"recipient_wallet\": \"PAYPAL\"\n    },\n    \"time_processed\": \"2022-02-02T06:46:09Z\",\n    \"errors\": {\n        \"name\": \"RECEIVER_UNREGISTERED\",\n        \"message\": \"The recipient for this payout does not have an account. A link to sign up for an account was sent to the recipient. However, if the recipient does not claim this payout within 30 days, the funds will be returned to your account.\",\n        \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n        \"details\": [],\n        \"links\": []\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts-item/4FNYP6JKEW28S\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts/42WWRAXUXYSQQ\",\n            \"rel\": \"batch\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "{{payout_item_id}}",
+                  "description": "(Required) The ID of the payout item for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "83",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "80a08a19b56b2",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:57:07 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-kigq8000033-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681160227.377104,VS0,VE165",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        },
+        {
+          "name": "404 Not Found - Payout Item Not Found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "CX64X3KPCVYAB",
+                  "description": "(Required) The ID of the payout item for which to show details."
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "223",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "a3363670149c4",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:30:40 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158640.389641,VS0,VE218",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_RESOURCE_ID\",\n    \"message\": \"The requested resource ID was not found\",\n    \"debug_id\": \"a3363670149c4\",\n    \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n    \"details\": [],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Cancel unclaimed payout item",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Request-Id",
+            "value": "{{$guid}}",
+            "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Client-Metadata-Id",
+            "value": "{{paypal_client_metadata_Id}}",
+            "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Partner-Attribution-Id",
+            "value": "{{paypal_partner_attribution_id}}",
+            "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "PayPal-Auth-Assertion",
+            "value": "{{paypal_auth_assertion}}",
+            "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_detailed}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Prefer",
+            "value": "{{prefer_representation_minimal}}",
+            "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id/cancel",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "payments",
+            "payouts-item",
+            ":payout_item_id",
+            "cancel"
+          ],
+          "variable": [
+            {
+              "key": "payout_item_id",
+              "value": "{{unclaimed_payout_item_id}}",
+              "description": "(Required) The ID of the payout item to cancel."
+            }
+          ]
+        },
+        "description": "Cancels an unclaimed payout item, by ID. If no one claims the unclaimed item within 30 days, the API automatically returns the funds to the sender. Use this call to cancel the unclaimed item before the automatic 30-day refund. You can cancel payout items with a <code>transaction_status</code> of <code>UNCLAIMED</code>."
+      },
+      "response": [
+        {
+          "name": "200 - Cancel Unclaimed Payout Item",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id",
+                "cancel"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "{{unclaimed_payout_item_id}}",
+                  "description": "(Required) The ID of the payout item to cancel."
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "a823a7ceb51b5",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:32:31 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158750.198842,VS0,VE961",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            },
+            {
+              "key": "content-encoding",
+              "value": "br",
+              "enabled": true
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"payout_item_id\": \"S697W7QJMAEX4\",\n    \"transaction_id\": \"0FY48488BY887313U\",\n    \"activity_id\": \"53C6543893640342P\",\n    \"transaction_status\": \"RETURNED\",\n    \"payout_item_fee\": {\n        \"currency\": \"USD\",\n        \"value\": \"0.25\"\n    },\n    \"payout_batch_id\": \"MJ77GF8MQ2TF6\",\n    \"sender_batch_id\": \"Payouts_1681157804\",\n    \"payout_item\": {\n        \"recipient_type\": \"PHONE\",\n        \"amount\": {\n            \"currency\": \"USD\",\n            \"value\": \"20.00\"\n        },\n        \"note\": \"Thanks for your support!\",\n        \"receiver\": \"15562941698\",\n        \"sender_item_id\": \"201403140002\",\n        \"recipient_wallet\": \"PAYPAL\"\n    },\n    \"time_processed\": \"2023-04-10T20:16:45Z\",\n    \"errors\": {\n        \"name\": \"RECEIVER_UNREGISTERED\",\n        \"message\": \"The recipient for this payout does not have an account. A link to sign up for an account was sent to the recipient. However, if the recipient does not claim this payout within 30 days, the funds will be returned to your account.\",\n        \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n        \"details\": [],\n        \"links\": []\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts-item/S697W7QJMAEX4\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/payments/payouts/MJ77GF8MQ2TF6\",\n            \"rel\": \"batch\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "401 Unauthorized - Invalid Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id",
+                "cancel"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "CX64X3KPCVYAB",
+                  "description": "(Required) The ID of the payout item to cancel."
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "223",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "fb24ae446a888",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:31:52 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158712.888917,VS0,VE125",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"invalid_token\",\n    \"error_description\": \"Token signature verification failed\"\n}"
+        },
+        {
+          "name": "404 Not Found - Payout Item Not Found",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Client-Metadata-Id",
+                "value": "{{paypal_client_metadata_Id}}",
+                "description": "Optional. Verifies that the payment originates from a valid, user-consented device and application. Reduces fraud and decreases declines. Transactions that do not include a client metadata ID are not eligible for PayPal Seller Protection.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Partner-Attribution-Id",
+                "value": "{{paypal_partner_attribution_id}}",
+                "description": "Optional. Identifies the caller as a PayPal partner. To receive revenue attribution, specify a unique build notation (BN) code. BN codes provide tracking on all transactions that originate or are associated with a particular partner. To find your BN code, see Code and Credential Reference.",
+                "disabled": true
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_detailed}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              },
+              {
+                "key": "Prefer",
+                "value": "{{prefer_representation_minimal}}",
+                "description": "The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/payments/payouts-item/:payout_item_id/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "payments",
+                "payouts-item",
+                ":payout_item_id",
+                "cancel"
+              ],
+              "variable": [
+                {
+                  "key": "payout_item_id",
+                  "value": "CX64X3KPCVYAB",
+                  "description": "(Required) The ID of the payout item to cancel."
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "enabled": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "223",
+              "enabled": true
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.14.0 (Ubuntu)",
+              "enabled": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate",
+              "enabled": true
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "fb24ae446a888",
+              "enabled": true
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains",
+              "enabled": true
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0",
+              "enabled": true
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes",
+              "enabled": true
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 10 Apr 2023 20:31:52 GMT",
+              "enabled": true
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish",
+              "enabled": true
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-chi-klot8100056-CHI",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "enabled": true
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1681158712.888917,VS0,VE125",
+              "enabled": true
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding",
+              "enabled": true
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_RESOURCE_ID\",\n    \"message\": \"The requested resource ID was not found\",\n    \"debug_id\": \"fb24ae446a888\",\n    \"information_link\": \"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors\",\n    \"details\": [],\n    \"links\": []\n}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2358 @@
+{
+  "info": {
+    "_postman_id": "6270616e-2a8d-4310-8e7e-b1fa83f446c5",
+    "name": "Payment Method Tokens",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30269281",
+    "_collection_link": "https://go.postman.co/collection/43216670-6270616e-2a8d-4310-8e7e-b1fa83f446c5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Vault Payment Source - Setup Tokens",
+      "item": [
+        {
+          "name": "Create a setup token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": \"{{card_number}}\",\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/vault/setup-tokens",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "setup-tokens"
+              ]
+            },
+            "description": "Creates a Setup Token from the given payment source and adds it to the Vault of the associated customer."
+          },
+          "response": [
+            {
+              "name": "200 - Idempotent Response For Same Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": {{card_number}},\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"45F60002VK509192A\",\n    \"customer\": {\n        \"id\": \"fGtbpQnJMb\"\n    },\n    \"status\": \"APPROVED\",\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"1111\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/45F60002VK509192A\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens\",\n            \"rel\": \"confirm\",\n            \"method\": \"POST\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Card Setup Token With Empty Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {}\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"6UU81062YY0418245\",\n    \"customer\": {\n        \"id\": \"JryyYqNzBL\"\n    },\n    \"status\": \"CREATED\",\n    \"payment_source\": {\n        \"card\": {}\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/6UU81062YY0418245\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Card Setup Token With Minimal Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": {{card_number}},\n            \"expiry\": \"2027-02\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"3EH94391A48245204\",\n    \"customer\": {\n        \"id\": \"ezTMcZnMnf\"\n    },\n    \"status\": \"APPROVED\",\n    \"payment_source\": {\n        \"card\": {\n            \"last_digits\": \"1111\",\n            \"expiry\": \"2027-02\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/3EH94391A48245204\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens\",\n            \"rel\": \"confirm\",\n            \"method\": \"POST\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Card Setup Token With Detailed Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": {{card_number}},\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"83C13517RU867205M\",\n    \"customer\": {\n        \"id\": \"LufmsuLEQp\"\n    },\n    \"status\": \"APPROVED\",\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"1111\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/83C13517RU867205M\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens\",\n            \"rel\": \"confirm\",\n            \"method\": \"POST\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Card Setup Token With Smart Auth",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": {{card_number}},\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            },\n            \"verification_method\": \"SCA_WHEN_REQUIRED\",\n            \"experience_context\": {\n                \"brand_name\": \"YourBrandName\",\n                \"locale\": \"en-US\",\n                \"return_url\": \"https://example.com/return\",\n                \"cancel_url\": \"https://example.com/cancel\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"2V875033TD540905H\",\n    \"customer\": {\n        \"id\": \"ZmMgvhevPp\"\n    },\n    \"status\": \"APPROVED\",\n    \"payment_source\": {\n        \"card\": {\n            \"last_digits\": \"1111\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            },\n            \"verification_status\": \"VERIFIED\",\n            \"verification\": {\n                \"network_transaction_id\": \"21608876576239808\",\n                \"time\": \"2023-10-23T18:31:40.000Z\",\n                \"amount\": {\n                    \"currency_code\": \"USD\",\n                    \"value\": \"0.00\"\n                },\n                \"processor_response\": {\n                    \"avs_code\": \"A\",\n                    \"cvv_code\": \"C\",\n                    \"response_code\": \"00\"\n                }\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/2V875033TD540905H\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens\",\n            \"rel\": \"confirm\",\n            \"method\": \"POST\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Card Setup Token With Payer Action Required",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": {{card_number}},\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            },\n            \"verification_method\": \"SCA_ALWAYS\",\n            \"experience_context\": {\n                \"brand_name\": \"YourBrandName\",\n                \"locale\": \"en-US\",\n                \"return_url\": \"https://example.com/return\",\n                \"cancel_url\": \"https://example.com/cancel\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"4NG32762WA842403M\",\n    \"customer\": {\n        \"id\": \"DfgSzLmHEB\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"card\": {\n            \"last_digits\": \"1111\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/4NG32762WA842403M\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/webapps/helios?action=authenticate&token=0L8430572J681963S\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create PayPal Wallet Setup Token With Empty Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"paypal\": {}\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"312381333A8317357\",\n    \"customer\": {\n        \"id\": \"GTlmuDsbCW\"\n    },\n    \"status\": \"CREATED\",\n    \"payment_source\": {\n        \"paypal\": {}\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/312381333A8317357\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create PayPal Wallet Setup Token With Minimal Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"paypal\": {\n            \"description\": \"MERCHANT\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"3GA29298J86557217\",\n    \"customer\": {\n        \"id\": \"dTRzPGgvOC\"\n    },\n    \"status\": \"CREATED\",\n    \"payment_source\": {\n        \"paypal\": {\n            \"usage_type\": \"MERCHANT\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/3GA29298J86557217\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create PayPal Wallet Setup Token With Detailed Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"paypal\": {\n            \"description\": \"Description for PayPal to be shown to PayPal payer\",\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"Building 17\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"permit_multiple_payment_tokens\": false,\n            \"usage_pattern\": \"IMMEDIATE\",\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\",\n            \"experience_context\": {\n                \"shipping_preference\": \"SET_PROVIDED_ADDRESS\",\n                \"payment_method_preference\": \"IMMEDIATE_PAYMENT_REQUIRED\",\n                \"brand_name\": \"EXAMPLE INC\",\n                \"locale\": \"en-US\",\n                \"return_url\": \"https://example.com/return\",\n                \"cancel_url\": \"https://example.com/cancel\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"69F79266KK066450U\",\n    \"customer\": {\n        \"id\": \"gQoGWcxZKI\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"paypal\": {\n            \"description\": \"Description for PayPal to be shown to PayPal payer\",\n            \"usage_pattern\": \"IMMEDIATE\",\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"Building 17\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"permit_multiple_payment_tokens\": false,\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/69F79266KK066450U\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://sandbox.paypal.com/agreements/approve?approval_session_id=69F79266KK066450U\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create PayPal Wallet Setup Token With Vault instruction as ON_PAYER_APPROVAL",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"paypal\": {\n            \"usage_type\": \"MERCHANT\",\n            \"experience_context\": {\n                \"vault_instruction\": \"ON_PAYER_APPROVAL\",\n                \"return_url\": \"https://example.com/return\",\n                \"cancel_url\": \"https://example.com/cancel\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"5LU67289XB478645D\",\n    \"customer\": {\n        \"id\": \"jQzcSJzyOd\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"paypal\": {\n            \"usage_type\": \"MERCHANT\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/5LU67289XB478645D\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://sandbox.paypal.com/agreements/approve?approval_session_id=5LU67289XB478645D\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Venmo Setup Token With Minimal Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"venmo\": {\n            \"usage_type\": \"MERCHANT\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"96A81500D0636973R\",\n    \"customer\": {\n        \"id\": \"PqJfAIWkGf\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"venmo\": {\n            \"usage_type\": \"MERCHANT\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/96A81500D0636973R\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://sandbox.paypal.com/agreements/approve?approval_session_id=96A81500D0636973R\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Venmo Setup Token With Detailed Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"venmo\": {\n            \"description\": \"Description for Venmo to be shown to Venmo payer\",\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"Building 17\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"permit_multiple_payment_tokens\": false,\n            \"usage_pattern\": \"IMMEDIATE\",\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\",\n            \"experience_context\": {\n                \"shipping_preference\": \"SET_PROVIDED_ADDRESS\",\n                \"brand_name\": \"EXAMPLE INC\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"85186205RL0794831\",\n    \"customer\": {\n        \"id\": \"fTfQyTnmnB\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"venmo\": {\n            \"description\": \"Description for Venmo to be shown to Venmo payer\",\n            \"usage_pattern\": \"IMMEDIATE\",\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"Building 17\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"permit_multiple_payment_tokens\": false,\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/85186205RL0794831\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://sandbox.paypal.com/agreements/approve?approval_session_id=85186205RL0794831\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "400 Bad Request - Missing Country Code In Billing Address",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": \"{{card_number}}\",\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"879c9621b371a\",\n    \"details\": [\n        {\n            \"field\": \"/payment_source/card/billing_address/country_code\",\n            \"value\": \"\",\n            \"location\": \"body\",\n            \"issue\": \"MISSING_REQUIRED_PARAMETER\",\n            \"description\": \"a required field / parameter is missing.\"\n        }\n    ],\n    \"links\": []\n}"
+            },
+            {
+              "name": "400 Bad Request - Missing Payment Source",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"837d78be26ea9\",\n    \"details\": [\n        {\n            \"field\": \"/payment_source\",\n            \"value\": \"class SetupTokenRequestPaymentSource {\\n    card: null\\n    paypal: null\\n    venmo: null\\n    applePay: null\\n    token: null\\n    bank: null\\n}\",\n            \"location\": \"body\",\n            \"issue\": \"EXACTLY_ONE_FIELD_REQUIRED\",\n            \"description\": \"exactly one field is required\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-EXACTLY_ONE_FIELD_REQUIRED\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "403 Forbidden - Vault Not Enabled",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"paypal\": {\n            \"description\": \"Description for PayPal to be shown to PayPal payer\",\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"17.3.160\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"permit_multiple_payment_tokens\": false,\n            \"usage_pattern\": \"IMMEDIATE\",\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\",\n            \"experience_context\": {\n                \"shipping_preference\": \"SET_PROVIDED_ADDRESS\",\n                \"payment_method_preference\": \"IMMEDIATE_PAYMENT_REQUIRED\",\n                \"brand_name\": \"EXAMPLE INC\",\n                \"locale\": \"en-US\",\n                \"return_url\": \"https://example.com/return\",\n                \"cancel_url\": \"https://example.com/cancel\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"status\": \"403\",\n    \"headers\": {\n        \"Content-Type\": \"application/json\"\n    },\n    \"body\": {\n        \"name\": \"NOT_AUTHORIZED\",\n        \"message\": \"Authorization failed due to insufficient permissions.\",\n        \"debug_id\": \"bb7c4ed5a627c\",\n        \"details\": [\n            {\n                \"issue\": \"NOT_ENABLED_TO_VAULT_PAYMENT_SOURCE\",\n                \"description\": \"The API caller or the merchant on whose behalf the API call is initiated is not allowed to vault the given source. Please contact PayPal customer support for assistance.\"\n            }\n        ],\n        \"links\": [\n            {\n                \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-FORBIDDEN\",\n                \"rel\": \"information_link\",\n                \"method\": \"GET\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a setup token",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v3/vault/setup-tokens/:setup_token_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "setup-tokens",
+                ":setup_token_id"
+              ],
+              "variable": [
+                {
+                  "key": "setup_token_id",
+                  "value": "{{setup_token_id}}"
+                }
+              ]
+            },
+            "description": "Returns a readable representation of temporarily vaulted payment source associated with the setup token id."
+          },
+          "response": [
+            {
+              "name": "200 - Retrieve A Setup Token Status Approved",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens/:setup_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens",
+                    ":setup_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "setup_token_id",
+                      "value": "{{setup_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"3FV81224DT325173L\",\n    \"customer\": {\n        \"id\": \"RXtFdntTOA\"\n    },\n    \"status\": \"APPROVED\",\n    \"payment_source\": {\n        \"card\": {\n            \"last_digits\": \"1111\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            },\n            \"verification_status\": \"VERIFIED\",\n            \"verification\": {\n                \"network_transaction_id\": \"21590180576320777\",\n                \"time\": \"2023-10-06T21:56:48.000Z\",\n                \"amount\": {\n                    \"currency_code\": \"USD\",\n                    \"value\": \"0.00\"\n                },\n                \"processor_response\": {\n                    \"avs_code\": \"A\",\n                    \"cvv_code\": \"C\",\n                    \"response_code\": \"00\"\n                }\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/3FV81224DT325173L\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens\",\n            \"rel\": \"confirm\",\n            \"method\": \"POST\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "200 - Retrieve A Setup Token Status PAYER_ACTION_REQUIRED",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens/:setup_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens",
+                    ":setup_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "setup_token_id",
+                      "value": "{{setup_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"85Y15182AJ132912C\",\n    \"customer\": {\n        \"id\": \"GYzSRHSEAu\"\n    },\n    \"status\": \"PAYER_ACTION_REQUIRED\",\n    \"payment_source\": {\n        \"card\": {\n            \"last_digits\": \"9482\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/setup-tokens/85Y15182AJ132912C\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/webapps/helios?action=authenticate&token=28A9864342204934F\",\n            \"rel\": \"approve\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "404 Not Found - Given Setup Token Not Exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens/:setup_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens",
+                    ":setup_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "setup_token_id",
+                      "value": "{{setup_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"RESOURCE_NOT_FOUND\",\n    \"message\": \"The specified resource does not exist.\",\n    \"debug_id\": \"ca06b15c4f759\",\n    \"details\": [\n        {\n            \"issue\": \"TOKEN_NOT_FOUND\",\n            \"description\": \"The specified token id does not exist.\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_RESOURCE_ID\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "500 Internal Error - Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/setup-tokens/:setup_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "setup-tokens",
+                    ":setup_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "setup_token_id",
+                      "value": "{{setup_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INTERNAL_SERVER_ERROR\",\n    \"message\": \"An internal server error has occurred.\",\n    \"debug_id\": \"90957fca61718\",\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/api/orders/v2/#error-INTERNAL_SERVER_ERROR\",\n            \"rel\": \"information_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vault Payment Source - Payment token",
+      "item": [
+        {
+          "name": "Create payment token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"{{setup_token_id}}\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/vault/payment-tokens",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "payment-tokens"
+              ]
+            },
+            "description": "Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer."
+          },
+          "response": [
+            {
+              "name": "201 - Create Payment Token From Card Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": \"{{card_number}}\",\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_1\": \"CA\",\n                \"admin_area_2\": \"San Jose\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"9gw35186f2260025p\",\n    \"customer\": {\n        \"id\": \"vcmVCcQYAZ\"\n    },\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"2229\",\n            \"brand\": \"MASTER\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/9gw35186f2260025p\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/9gw35186f2260025p\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Payment Token From Card Setup Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"{{setup_token_id}}\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"17m19804ts2256137\",\n    \"customer\": {\n        \"id\": \"IoYQxaLaLn\"\n    },\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"0017\",\n            \"brand\": \"MASTER\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            },\n            \"verification_status\": \"VERIFIED\",\n            \"verification\": {\n                \"network_transaction_id\": \"21612175113180886\",\n                \"time\": \"2023-10-26T15:16:03.000Z\",\n                \"amount\": {\n                    \"currency_code\": \"USD\",\n                    \"value\": \"0.00\"\n                },\n                \"processor_response\": {\n                    \"avs_code\": \"Y\",\n                    \"cvv_code\": \"M\",\n                    \"response_code\": \"00\"\n                }\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/17m19804ts2256137\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/17m19804ts2256137\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "201 - Create Payment Token From PayPal Setup Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"{{setup_token_id}}\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"4j4mb9b3\",\n    \"customer\": {\n        \"id\": \"paypal_on_approve\"\n    },\n    \"payment_source\": {\n        \"paypal\": {\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"Patrick Kevin\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"1119 Maple Court #3\",\n                    \"address_line_2\": \"689129 Dodd Street\",\n                    \"admin_area_2\": \"Pensacola\",\n                    \"admin_area_1\": \"FL\",\n                    \"postal_code\": \"32591\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\",\n            \"email_address\": \"_sys_aquarium-5247833870355135@paypal.com\",\n            \"payer_id\": \"ZQ2V4N4ZQM9UE\",\n            \"name\": {\n                \"given_name\": \"Patrick\",\n                \"surname\": \"Kevin\",\n                \"full_name\": \"Patrick Kevin\"\n            },\n            \"phone\": {\n                \"phone_number\": {\n                    \"country_code\": \"US\",\n                    \"national_number\": \"786-768-4763\"\n                }\n            },\n            \"tenant\": \"PAYPAL\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/4j4mb9b3\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/4j4mb9b3\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "400 Bad Request - Missing Payment Source",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"4e289fae97b3b\",\n    \"details\": [\n        {\n            \"field\": \"/payment_source\",\n            \"value\": \"\",\n            \"location\": \"body\",\n            \"issue\": \"MISSING_REQUIRED_PARAMETER\",\n            \"description\": \"a required field / parameter is missing.\"\n        }\n    ],\n    \"links\": []\n}"
+            },
+            {
+              "name": "403 Forbidden - Vault Not Enabled",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"card\": {\n            \"number\": \"{{card_number}}\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"name\": \"John Doe\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"NOT_AUTHORIZED\",\n    \"message\": \"Authorization failed due to insufficient permissions.\",\n    \"debug_id\": \"360ee42996992\",\n    \"details\": [\n        {\n            \"issue\": \"NOT_ENABLED_FOR_VAULT\",\n            \"description\": \"The API caller or the merchant on whose behalf the API call is initiated is not enabled to vault.\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-NOT_ENABLED_FOR_VAULT\",\n            \"rel\": \"information_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "404 Not Found - Given Setup Token Not Exist",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"4BD1763VB2781894\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"RESOURCE_NOT_FOUND\",\n    \"message\": \"The specified resource does not exist.\",\n    \"debug_id\": \"b25def236f535\",\n    \"details\": [\n        {\n            \"issue\": \"TOKEN_NOT_FOUND\",\n            \"description\": \"The specified token id does not exist.\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_RESOURCE_ID\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "422 Unprocessable Entity - Setup Token Need Payer Action",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"{{setup_token_id}}\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"UNPROCESSABLE_ENTITY\",\n    \"message\": \"The requested action could not be performed, semantically incorrect, or failed business validation.\",\n    \"debug_id\": \"5890685ba99f9\",\n    \"details\": [\n        {\n            \"issue\": \"PAYER_ACTION_REQUIRED\",\n            \"description\": \"Please make sure setup up token is approved.\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-UNPROCESSABLE_ENTITY\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "500 Internal Error - Create From Minimum PayPal Setup Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payment_source\": {\n        \"token\": {\n            \"id\": \"{{setup_token_id}}\",\n            \"type\": \"SETUP_TOKEN\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INTERNAL_SERVER_ERROR\",\n    \"message\": \"An internal server error has occurred.\",\n    \"debug_id\": \"f8c142a5f9130\",\n    \"details\": [],\n    \"links\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a payment token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "payment-tokens",
+                ":payment_token_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_token_id",
+                  "value": "{{payment_token_id}}"
+                }
+              ]
+            },
+            "description": "Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer."
+          },
+          "response": [
+            {
+              "name": "200 - Get Payment Token Card",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"194693447s1351940\",\n    \"customer\": {\n        \"id\": \"nrsjeYSJFY\"\n    },\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"8886\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2027-02\",\n            \"billing_address\": {\n                \"address_line_1\": \"2211 N First Street\",\n                \"address_line_2\": \"17.3.160\",\n                \"admin_area_2\": \"San Jose\",\n                \"admin_area_1\": \"CA\",\n                \"postal_code\": \"95131\",\n                \"country_code\": \"US\"\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/194693447s1351940\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/194693447s1351940\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "200 - Get Payment Token With Smart Auth",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"4ed61551f1497884u\",\n    \"customer\": {\n        \"id\": \"1Aqs0XT\"\n    },\n    \"payment_source\": {\n        \"card\": {\n            \"name\": \"John Doe\",\n            \"last_digits\": \"1111\",\n            \"brand\": \"VISA\",\n            \"expiry\": \"2030-01\",\n            \"billing_address\": {\n                \"address_line_1\": \"Via Appia Nuova\",\n                \"address_line_2\": \"123/4\",\n                \"admin_area_2\": \"Roma\",\n                \"admin_area_1\": \"RM\",\n                \"postal_code\": \"00184\",\n                \"country_code\": \"IT\"\n            },\n            \"verification_status\": \"VERIFIED\",\n            \"verification\": {\n                \"network_transaction_id\": \"21593416679851481\",\n                \"time\": \"2023-10-09T21:21:25.000Z\",\n                \"amount\": {\n                    \"currency_code\": \"USD\",\n                    \"value\": \"0.00\"\n                },\n                \"processor_response\": {\n                    \"avs_code\": \"A\",\n                    \"cvv_code\": \"M\",\n                    \"response_code\": \"00\"\n                }\n            }\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/4ed61551f1497884u\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/4ed61551f1497884u\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "200 - Get Payment Token PayPal",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"id\": \"mcmjs1ns\",\n    \"customer\": {\n        \"id\": \"2pQ17id\"\n    },\n    \"payment_source\": {\n        \"paypal\": {\n            \"shipping\": {\n                \"name\": {\n                    \"full_name\": \"John Doe\"\n                },\n                \"address\": {\n                    \"address_line_1\": \"2211 N First Street\",\n                    \"address_line_2\": \"Building 17\",\n                    \"admin_area_2\": \"San Jose\",\n                    \"admin_area_1\": \"CA\",\n                    \"postal_code\": \"95131\",\n                    \"country_code\": \"US\"\n                }\n            },\n            \"usage_type\": \"MERCHANT\",\n            \"customer_type\": \"CONSUMER\",\n            \"email_address\": \"_sys_aquarium-8269378280518314@paypal.com\",\n            \"payer_id\": \"P9877T8XD5ZZL\",\n            \"name\": {\n                \"given_name\": \"Brian\",\n                \"surname\": \"Lesley\",\n                \"full_name\": \"Brian Lesley\"\n            },\n            \"phone\": {\n                \"phone_number\": {\n                    \"country_code\": \"US\",\n                    \"national_number\": \"405-352-4616\"\n                }\n            },\n            \"tenant\": \"PAYPAL\"\n        }\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/mcmjs1ns\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/mcmjs1ns\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "404 Not Found - Payment Token Id Not Exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "nb265g4f"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"RESOURCE_NOT_FOUND\",\n    \"message\": \"The specified resource does not exist.\",\n    \"debug_id\": \"65fe9314b0fb1\",\n    \"details\": [],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_RESOURCE_ID\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "500 Internal error - INTERNAL_SERVER_ERROR",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INTERNAL_SERVER_ERROR\",\n    \"message\": \"An internal server error has occurred.\",\n    \"debug_id\": \"a4568057f6bf2\",\n    \"details\": [],\n    \"links\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete payment token",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "payment-tokens",
+                ":payment_token_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_token_id",
+                  "value": "{{payment_token_id}}"
+                }
+              ]
+            },
+            "description": "Delete the payment token associated with the payment token id."
+          },
+          "response": [
+            {
+              "name": "204 - Delete Payment Token",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": null
+            },
+            {
+              "name": "400 Bad Request - Payment Token Id Invalid",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens/:payment_token_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens",
+                    ":payment_token_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payment_token_id",
+                      "value": "{{payment_token_id}}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"37de135a0ae89\",\n    \"details\": [\n        {\n            \"field\": \"id\",\n            \"value\": \":payment_token_id\",\n            \"location\": \"path\",\n            \"issue\": \"INVALID_PARAMETER_SYNTAX\",\n            \"description\": \"the value of a field does not conform to the expected format.\"\n        }\n    ],\n    \"links\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "List all payment tokens for customer",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+              },
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}",
+                "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+              },
+              {
+                "key": "PayPal-Auth-Assertion",
+                "value": "{{paypal_auth_assertion}}",
+                "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v3/vault/payment-tokens?customer_id={{vault_customer_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v3",
+                "vault",
+                "payment-tokens"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "5",
+                  "description": "A non-negative, non-zero integer indicating the maximum number of results to return at one time.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "A non-negative, non-zero integer representing the page of the results.",
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "false",
+                  "description": "A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.",
+                  "disabled": true
+                },
+                {
+                  "key": "customer_id",
+                  "value": "{{vault_customer_id}}"
+                }
+              ]
+            },
+            "description": "Returns all payment tokens for a customer."
+          },
+          "response": [
+            {
+              "name": "200 - Get Payment Tokens For Customer",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens?customer_id={{vault_customer_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ],
+                  "query": [
+                    {
+                      "key": "customer_id",
+                      "value": "{{vault_customer_id}}",
+                      "description": "(Required) A unique identifier representing a specific customer in merchant's/partner's system or records."
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "5",
+                      "description": "A non-negative, non-zero integer indicating the maximum number of results to return at one time.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "A non-negative, non-zero integer representing the page of the results.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "total_required",
+                      "value": "false",
+                      "description": "A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"customer\": {\n        \"id\": \"zEKccQjcyi\"\n    },\n    \"payment_tokens\": [\n        {\n            \"id\": \"qg76szx5\",\n            \"customer\": {\n                \"id\": \"zEKccQjcyi\"\n            },\n            \"payment_source\": {\n                \"card\": {\n                    \"name\": \"John Doe\",\n                    \"last_digits\": \"1111\",\n                    \"brand\": \"VISA\",\n                    \"expiry\": \"2027-02\",\n                    \"billing_address\": {\n                        \"address_line_1\": \"2211 N First Street\",\n                        \"address_line_2\": \"17.3.160\",\n                        \"admin_area_2\": \"San Jose\",\n                        \"admin_area_1\": \"CA\",\n                        \"postal_code\": \"95131\",\n                        \"country_code\": \"US\",\n                        \"id\": \"ws\"\n                    },\n                    \"verification_status\": \"VERIFIED\",\n                    \"verification\": {\n                        \"network_transaction_id\": \"21593479112740241\",\n                        \"time\": \"2023-10-09T22:56:02Z\",\n                        \"amount\": {\n                            \"currency_code\": \"USD\",\n                            \"value\": \"0.00\"\n                        },\n                        \"processor_response\": {\n                            \"avs_code\": \"A\",\n                            \"cvv_code\": \"C\",\n                            \"response_code\": \"00\"\n                        }\n                    }\n                }\n            },\n            \"links\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/qg76szx5\",\n                    \"rel\": \"self\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                },\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/qg76szx5\",\n                    \"rel\": \"delete\",\n                    \"method\": \"DELETE\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=zEKccQjcyi&pageSizeInternal=5\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=zEKccQjcyi&pageSizeInternal=5\",\n            \"rel\": \"first\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=zEKccQjcyi&pageSizeInternal=5\",\n            \"rel\": \"last\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "200 - Get Payment Tokens For Customer With NO PMT",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens?customer_id={{vault_customer_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ],
+                  "query": [
+                    {
+                      "key": "customer_id",
+                      "value": "{{vault_customer_id}}",
+                      "description": "(Required) A unique identifier representing a specific customer in merchant's/partner's system or records."
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "5",
+                      "description": "A non-negative, non-zero integer indicating the maximum number of results to return at one time.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "A non-negative, non-zero integer representing the page of the results.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "total_required",
+                      "value": "false",
+                      "description": "A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"customer\": {\n        \"id\": \"UMzpHwoBUi\"\n    },\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?customer_id=UMzpHwoBUi\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "200 - Get Payment Token For Customer Paypal",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens?customer_id={{vault_customer_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ],
+                  "query": [
+                    {
+                      "key": "customer_id",
+                      "value": "{{vault_customer_id}}",
+                      "description": "(Required) A unique identifier representing a specific customer in merchant's/partner's system or records."
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "5",
+                      "description": "A non-negative, non-zero integer indicating the maximum number of results to return at one time.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "A non-negative, non-zero integer representing the page of the results.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "total_required",
+                      "value": "false",
+                      "description": "A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"customer\": {\n        \"id\": \"EUvtnr5\"\n    },\n    \"payment_tokens\": [\n        {\n            \"id\": \"dd0nf9cw\",\n            \"customer\": {\n                \"id\": \"EUvtnr5\"\n            },\n            \"payment_source\": {\n                \"paypal\": {\n                    \"shipping\": {\n                        \"name\": {\n                            \"full_name\": \"John Doe\"\n                        },\n                        \"address\": {\n                            \"address_line_1\": \"2211 N First Street\",\n                            \"address_line_2\": \"Building 17\",\n                            \"admin_area_2\": \"San Jose\",\n                            \"admin_area_1\": \"CA\",\n                            \"postal_code\": \"95131\",\n                            \"country_code\": \"US\"\n                        }\n                    },\n                    \"usage_type\": \"MERCHANT\",\n                    \"customer_type\": \"CONSUMER\",\n                    \"email_address\": \"_sys_aquarium-1020124149375675@paypal.com\",\n                    \"payer_id\": \"WRV2K2BFNBRJY\",\n                    \"name\": {\n                        \"given_name\": \"Earl\",\n                        \"surname\": \"Kenneth\",\n                        \"full_name\": \"Earl Kenneth\"\n                    },\n                    \"phone\": {\n                        \"phone_number\": {\n                            \"country_code\": \"US\",\n                            \"national_number\": \"684-346-8882\"\n                        }\n                    },\n                    \"tenant\": \"PAYPAL\"\n                }\n            },\n            \"links\": [\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/dd0nf9cw\",\n                    \"rel\": \"self\",\n                    \"method\": \"GET\",\n                    \"encType\": \"application/json\"\n                },\n                {\n                    \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens/dd0nf9cw\",\n                    \"rel\": \"delete\",\n                    \"method\": \"DELETE\",\n                    \"encType\": \"application/json\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=EUvtnr5&pageSizeInternal=5\",\n            \"rel\": \"self\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=EUvtnr5&pageSizeInternal=5\",\n            \"rel\": \"first\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v3/vault/payment-tokens?pageNumber=1&totalRequired=false&customer_id=EUvtnr5&pageSizeInternal=5\",\n            \"rel\": \"last\",\n            \"method\": \"GET\",\n            \"encType\": \"application/json\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "404 Not Found - Given Customer Not Exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": "The Content-Type header field is used to specify the nature of the data in the body of an entity. PayPal REST APIs support application/json."
+                  },
+                  {
+                    "key": "PayPal-Request-Id",
+                    "value": "{{$guid}}",
+                    "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager."
+                  },
+                  {
+                    "key": "PayPal-Auth-Assertion",
+                    "value": "{{paypal_auth_assertion}}",
+                    "description": "An API client-provided JSON Web Token (JWT) assertion that identifies the merchant. To use this header, you must get consent to act on behalf of a merchant.\n",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v3/vault/payment-tokens?customer_id=UMzpHwoBUi",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "vault",
+                    "payment-tokens"
+                  ],
+                  "query": [
+                    {
+                      "key": "customer_id",
+                      "value": "UMzpHwoBUi",
+                      "description": "(Required) A unique identifier representing a specific customer in merchant's/partner's system or records."
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "5",
+                      "description": "A non-negative, non-zero integer indicating the maximum number of results to return at one time.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "A non-negative, non-zero integer representing the page of the results.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "total_required",
+                      "value": "false",
+                      "description": "A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "body": "{\n    \"name\": \"RESOURCE_NOT_FOUND\",\n    \"message\": \"The specified resource does not exist.\",\n    \"debug_id\": \"888d3ce59bbf5\",\n    \"details\": [],\n    \"links\": [\n        {\n            \"href\": \"https://developer.paypal.com/docs/limited-release/payment-tokens/v3/api/#error-INVALID_RESOURCE_ID\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

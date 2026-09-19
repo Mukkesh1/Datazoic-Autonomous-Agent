@@ -1,0 +1,566 @@
+{
+  "info": {
+    "_postman_id": "8c5dd80b-456d-42e9-a095-9839cb3456a9",
+    "name": "Currency Exchange",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30269281",
+    "_collection_link": "https://go.postman.co/collection/43216670-8c5dd80b-456d-42e9-a095-9839cb3456a9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create currency exchange quote",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"quote_items\": [\n        {\n            \"base_currency\": \"USD\",\n            \"base_amount\": \"20.00\",\n            \"quote_currency\": \"CAD\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v2/pricing/quote-exchange-rates",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v2",
+            "pricing",
+            "quote-exchange-rates"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST https://api.paypal.com/v2/pricing/quote-exchange-rates \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ACCESS_TOKEN>\" \\\n  -d '{\n    \"organization\": \"YOUR_ORGANIZATION_PATH\",\n    \"quote_items\": [\n      {\n        \"base_currency\": \"USD\",\n        \"base_amount\": \"100.00\",\n        \"quote_currency\": \"EUR\",\n        \"markup_percent\": \"1\",\n        \"fx_id\": \"PREVIOUS_FX_ID_IF_ANY\"\n      }\n    ]\n  }'\n"
+      },
+      "response": [
+        {
+          "name": "200 - Minimal Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quote_items\": [\n    {\n      \"base_currency\": \"USD\",\n      \"base_amount\": \"16.80\",\n      \"quote_currency\": \"GBP\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v2/pricing/quote-exchange-rates",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v2",
+                "pricing",
+                "quote-exchange-rates"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f914610e7fd87"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f914610e7fd87-a08f01c5575288f7-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 06 Nov 2025 12:22:03 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-qpg120094-QPG, cache-maa10246-MAA"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1762431723.969961,VS0,VE931"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"exchange_rate_quotes\": [\n        {\n            \"base_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"16.80\"\n            },\n            \"quote_amount\": {\n                \"currency_code\": \"GBP\",\n                \"value\": \"12.85\"\n            },\n            \"exchange_rate\": \"0.76508641343\",\n            \"fx_id\": \"MTFGMC1CQjA5LUQzMzU3MTYyLTk3NkYtMjRCNzUwRDBGQkQz\",\n            \"expiry_time\": \"2025-11-07T02:00Z\",\n            \"rate_refresh_time\": \"2025-11-07T01:00Z\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "400 - Invalid currency amount",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quote_items\": [\n        {\n            \"base_currency\": \"USD\",\n            \"base_amount\": \"10.001\",\n            \"quote_currency\": \"INR\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v2/pricing/quote-exchange-rates",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v2",
+                "pricing",
+                "quote-exchange-rates"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "260"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f74120321147c"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f74120321147c-60bcd706a2c6b93a-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 06 Nov 2025 13:31:16 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-qpg1275-QPG, cache-maa10232-MAA"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1762435876.865660,VS0,VE956"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"VALIDATION_ERROR\",\n    \"message\": \"Invalid request - see details\",\n    \"debug_id\": \"f74120321147c\",\n    \"details\": [\n        {\n            \"issue\": \"java.lang.IllegalArgumentException: too many Decimal places for Currency code: USDtoo many Decimal places for Currency code: USD\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get currency exchange quote",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v2/pricing/quote-exchange-rates/{{fx_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v2",
+            "pricing",
+            "quote-exchange-rates",
+            "{{fx_id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 - Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v2/pricing/quote-exchange-rates/{{fx_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v2",
+                "pricing",
+                "quote-exchange-rates",
+                "{{fx_id}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f73842128f302"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f73842128f302-86de5890588bcd04-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 17 Nov 2025 07:55:19 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-qpg120114-QPG, cache-maa10231-MAA"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1763366118.657836,VS0,VE1346"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"exchange_rate_quotes\": [\n        {\n            \"base_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"80.00\"\n            },\n            \"quote_amount\": {\n                \"currency_code\": \"CAD\",\n                \"value\": \"115.97\"\n            },\n            \"exchange_rate\": \"1.44964725\",\n            \"fx_id\": \"MTFGMC1DMzg4LUVEM0E4ODVDLTlGQUUtNzRGOEUwMTRCQUFF\",\n            \"expiry_time\": \"2025-11-18T02:00Z\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "404 - Invalid ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v2/pricing/quote-exchange-rates/invalid_fx_if",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v2",
+                "pricing",
+                "quote-exchange-rates",
+                "invalid_fx_if"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "133"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f265216c9c3d8"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f265216c9c3d8-5a126325888fe2e8-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 17 Nov 2025 07:55:54 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-qpg1256-QPG, cache-maa10231-MAA"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1763366154.744085,VS0,VE964"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_RESOURCE_ID\",\n    \"message\": \"The requested resource ID was not found\",\n    \"debug_id\": \"f265216c9c3d8\",\n    \"details\": [],\n    \"links\": []\n}"
+        }
+      ]
+    }
+  ]
+}

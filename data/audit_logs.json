@@ -1,0 +1,3679 @@
+[
+  {
+    "timestamp": "2026-09-18T12:51:51.203437",
+    "tool_id": "salesforce.user.delete.v1",
+    "params": {
+      "id": "9920"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T12:55:05.380757",
+    "tool_id": "salesforce.user.get.v3",
+    "params": {
+      "id": "user_id"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:04.087626",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:06.777153",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:09.646418",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:12.508633",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:15.384666",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:18.216815",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:50:21.196589",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:33.282030",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:36.367498",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:39.267966",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:42.045602",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:44.955641",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:47.839185",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T14:54:50.655292",
+    "tool_id": "aws.database.delete.v3",
+    "params": {
+      "id": "db123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:31.229925",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:41.998656",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:46.286151",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:50.624482",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:54.946111",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:02:59.183701",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:05:55.514886",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:05:59.400647",
+    "tool_id": "salesforce.user.get.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:06:03.639434",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:06:07.924270",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:18.017366",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:28.245362",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:32.455282",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:36.388476",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:40.274078",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:44.287458",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:48.610910",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:52.942898",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:09:57.432996",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:10:03.908723",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:12:24.508515",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:12:31.465096",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:12:36.494791",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:12:41.345055",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:21:27.129670",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:21:31.030159",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:21:35.739787",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:33:05.334049",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:33:08.814176",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:39:59.165509",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:40:02.812977",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:44:17.283008",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:44:21.249328",
+    "tool_id": "salesforce.user.get.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:44:25.166827",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:44:29.057838",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:50:17.633645",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:50:21.259992",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:54:39.237278",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:54:43.262889",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:56:54.457649",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T15:56:57.089269",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:04:31.346802",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:04:35.142631",
+    "tool_id": "sap.invoice.get.v3",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:09:02.989495",
+    "tool_id": "gcp.invoice.get.v1",
+    "params": {
+      "id": "inv-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:09:08.028807",
+    "tool_id": "salesforce.invoice.list.v2",
+    "params": {
+      "id": "inv-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:11:26.017992",
+    "tool_id": "salesforce.user.sync.v3",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:11:30.148583",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:14:13.285045",
+    "tool_id": "salesforce.user.sync.v3",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:14:16.826556",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:18:13.054544",
+    "tool_id": "aws.payment.sync.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:18:17.330029",
+    "tool_id": "gcp.invoice.get.v1",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:28:23.808007",
+    "tool_id": "sap.payment.sync.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:28:26.862725",
+    "tool_id": "gcp.invoice.sync.v1",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:33:50.522241",
+    "tool_id": "sap.payment.sync.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:33:56.123612",
+    "tool_id": "gcp.invoice.sync.v1",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:34:06.264771",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "billing@test.com",
+      "amount": 300,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:35:02.077081",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:35:08.374168",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:35:18.163458",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:40:34.221404",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:40:36.736864",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:40:40.533975",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:43:39.000095",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:43:41.576403",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:43:44.984949",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:46:06.764049",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:46:09.446034",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:46:12.818510",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:50:17.491831",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:50:20.734171",
+    "tool_id": "sap.invoice.get.v2",
+    "params": {
+      "id": "inv-222"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T16:50:25.037178",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "finance@test.com",
+      "amount": 500,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T19:55:28.287769",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T19:55:32.155356",
+    "tool_id": "internal_crm.dispute.list.v2",
+    "params": {
+      "id": "High-Priority"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:03:37.938589",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:05:46.348751",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:05:51.287045",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:15:58.317320",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:16:03.704642",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:17:08.265334",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:19:57.037221",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:21:27.522907",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:21:32.240039",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:22:53.517198",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:22:57.272731",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:23:56.291887",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:24:01.047766",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:24:07.473736",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:28:25.059248",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:28:29.330234",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:28:35.210650",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:29:50.867065",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:29:55.564129",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:30:49.851657",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:32:08.841855",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:37:03.072590",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:37:32.377828",
+    "tool_id": "aws.database.delete.v1",
+    "params": {
+      "id": "db-123"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:37:36.174162",
+    "tool_id": "sap.user.sync.v1",
+    "params": {
+      "id": "usr-456"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:37:58.489495",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:38:02.269987",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T20:38:06.811884",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:01:21.843596",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:01:26.950621",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:01:32.981355",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:02:48.146564",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:02:53.295067",
+    "tool_id": "salesforce.dispute.list.v1",
+    "params": {
+      "id": "High-Priority"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:03:39.882374",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:04:23.126904",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:14:14.064666",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:14:18.887775",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:14:26.139309",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:15:47.345896",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:15:50.832985",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:15:55.389319",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:17:47.500549",
+    "tool_id": "salesforce.user.sync.v2",
+    "params": {
+      "id": "usr-888"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:21:03.897770",
+    "tool_id": "aws.payment.update.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:21:08.684284",
+    "tool_id": "gcp.invoice.get.v2",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:21:14.444624",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "billing@test.com",
+      "amount": 300,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:22:49.433023",
+    "tool_id": "aws.payment.update.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:22:53.353105",
+    "tool_id": "gcp.invoice.get.v2",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:22:57.772923",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "billing@test.com",
+      "amount": 300,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:24:05.941894",
+    "tool_id": "aws.payment.update.v2",
+    "params": {
+      "id": "pay-101"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:24:09.841428",
+    "tool_id": "gcp.invoice.get.v2",
+    "params": {
+      "id": "inv-202"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:24:14.283361",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "billing@test.com",
+      "amount": 300,
+      "currency": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:59:52.566741",
+    "tool_id": "stripe.refund.get.v3",
+    "params": {
+      "id": "str-552"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T21:59:56.530192",
+    "tool_id": "sap.invoice.update.v2",
+    "params": {
+      "id": "8472-SAP"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T22:00:01.459039",
+    "tool_id": "paypal.invoicing.send",
+    "params": {
+      "recipient_email": "alice@test.com",
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-18T23:37:40.381115",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Premium SaaS Subscription",
+        "description": "Monthly premium access",
+        "type": "SERVICE"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-18T23:37:47.308548",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Premium SaaS Subscription",
+        "description": "Monthly premium access",
+        "type": "SERVICE"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-18T23:47:07.032474",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Premium SaaS Subscription",
+        "description": "Monthly premium access",
+        "type": "SERVICE"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-18T23:47:13.796264",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Premium SaaS Subscription",
+        "description": "Monthly premium access",
+        "type": "SERVICE"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:26:47.562907",
+    "tool_id": "paypal.list_disputes",
+    "url": "https://api-m.sandbox.paypal.com/v1/customer/disputes",
+    "method": "GET",
+    "params": {
+      "dispute_id": "",
+      "request_body": {}
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:26:54.318599",
+    "tool_id": "paypal.list_disputes",
+    "url": "https://api-m.sandbox.paypal.com/v1/customer/disputes",
+    "method": "GET",
+    "params": {
+      "dispute_id": "",
+      "request_body": {}
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:27:00.927311",
+    "tool_id": "paypal.list_disputes",
+    "url": "https://api-m.sandbox.paypal.com/v1/customer/disputes",
+    "method": "GET",
+    "params": {
+      "dispute_id": "",
+      "request_body": {}
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:32:13.107473",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:11.484623",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:19.556870",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:26.735095",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:34.114954",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:42.779623",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:33:51.306271",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:34:00.148550",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "type": "product",
+        "price": 150.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:39:31.125659",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "price"
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:39:39.629618",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "description": "AI product for enterprise",
+        "price": 100.0
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:40:14.247251",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "billing_cycles": [],
+        "payment_preferences": {
+          "payment_dispute_mode": "AUTOMATIC",
+          "payment_dispute_from_date": "DAILY",
+          "payment_dispute_to_date": "DAILY",
+          "payment_dispute_max_amount": "100.00",
+          "payment_dispute_min_amount": "1.00",
+          "payment_dispute_max_count": "10",
+          "payment_dispute_min_count": "1"
+        },
+        "product_id": "product_id"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:40:33.483140",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "description": "AI product for enterprise",
+        "price": 100.0
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T00:41:43.699682",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "price"
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:41:55.623701",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Enterprise Cloud AI",
+        "description": "Enterprise Cloud AI product",
+        "price": 150
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:43:24.578477",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "price"
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:48:58.291161",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T00:50:29.593948",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:54:43.244654",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T00:57:24.649293",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Product",
+        "type": "SERVICE"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T00:57:34.513558",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-68F76142YK573190T",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-68F76142YK573190T",
+      "request_body": {
+        "name": "Product",
+        "description": "This is a product description"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:00:23.545848",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:02:23.002980",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product",
+        "price": 19.99,
+        "currency": "USD"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:02:34.843962",
+    "tool_id": "paypal.subscriptions_catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-9TW876824Y147153B",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-9TW876824Y147153B",
+      "request_body": {
+        "name": "New Product",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:05:52.413699",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:08:01.005462",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:08:10.296305",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-8B319207HW3984341",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-8B319207HW3984341",
+      "request_body": {
+        "name": "Product Catalog Item",
+        "description": "This is a product catalog item"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:21:37.712440",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Product Name",
+        "type": "PHYSICAL",
+        "id": "{{$timestamp}}",
+        "description": "Product Description",
+        "category": "Product Category",
+        "image_url": "https://example.com/gallary/images/{{$timestamp}}.jpg",
+        "home_url": "https://example.com/catalog/{{$timestamp}}.jpg"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:23:07.759705",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "string",
+        "description": "string"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:24:32.887331",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:27:03.809116",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "string",
+        "description": "string"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:27:15.579098",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/string",
+    "method": "PATCH",
+    "params": {
+      "product_id": "string",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "string"
+        }
+      ]
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:30:04.847257",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:30:16.228578",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-4F628108FY808072U",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-4F628108FY808072U",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Blue M"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:30:27.686815",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-4F628108FY808072U",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-4F628108FY808072U",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "New Name"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:30:40.891987",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-4F628108FY808072U",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-4F628108FY808072U",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Monthly premium access tier"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:30:51.988373",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Datazoic Premium Subscription"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:35:36.676564",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:35:48.832761",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-0E496318M73918543",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-0E496318M73918543",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "New Description"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:36:00.061240",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-0E496318M73918543",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-0E496318M73918543",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "New Name"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:36:12.994752",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-0E496318M73918543",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-0E496318M73918543",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Monthly premium access tier"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:38:44.703519",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Gold",
+        "description": "Premium Gold Tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:39:00.107645",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "PROD-89481827AM549693X",
+        "type": "RECURRING",
+        "payment_terms": {
+          "cycles": 1,
+          "frequency": "MONTH"
+        },
+        "pricing_scheme": {
+          "fixed_price": {
+            "currency_code": "USD",
+            "value": "50.00"
+          }
+        }
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:45:52.408265",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "type": "service",
+        "id": "datazoic-premium-subscription",
+        "description": "Monthly premium access tier",
+        "category": "service",
+        "image_url": "",
+        "home_url": ""
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:47:25.199757",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "type": "service",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:47:35.886549",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "type": "service",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:47:51.932792",
+    "tool_id": "paypal.subscriptions_plans_update_pricing",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/PROD-83842897N11863222/update-pricing-schemes",
+    "method": "POST",
+    "params": {
+      "billing_plan_id": "PROD-83842897N11863222",
+      "request_body": {
+        "pricing_schemes": [
+          {
+            "billing_cycle_sequence": "1",
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50",
+                "currency_code": "USD"
+              },
+              "roll_out_strategy": {
+                "effective_time": "2026-09-18T20:17:35Z",
+                "process_change_from": "2026-09-18T20:17:35Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:50:07.679554",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "<INSERT_VALUE_HERE>",
+        "type": "<INSERT_VALUE_HERE>",
+        "id": "<INSERT_VALUE_HERE>",
+        "description": "<INSERT_VALUE_HERE>",
+        "category": "<INSERT_VALUE_HERE>",
+        "image_url": "<INSERT_VALUE_HERE>",
+        "home_url": "<INSERT_VALUE_HERE>"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:52:25.988264",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:52:50.078794",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Gold",
+        "description": "Monthly subscription plan",
+        "product_id": "PROD-9DU298233W5631520",
+        "status": "ACTIVE",
+        "billing_cycles": [
+          {
+            "frequency": {
+              "interval_count": 1,
+              "interval_unit": "MONTH"
+            },
+            "pricing_scheme": {
+              "fixed_price": {
+                "currency_code": "USD",
+                "value": 50
+              }
+            }
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "payment_failure_threshold": 3,
+          "setup_fee": {
+            "currency_code": "USD",
+            "value": 0
+          },
+          "setup_fee_failure_action": "CONTINUE"
+        }
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T01:55:27.888723",
+    "tool_id": "paypal.catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:55:40.901792",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-2FR75665KE7497733",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-2FR75665KE7497733",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "named 'X' with description 'Y'"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:55:52.443269",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-2FR75665KE7497733",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-2FR75665KE7497733",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "named 'X' with description 'Y'"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:56:07.405750",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-2FR75665KE7497733",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-2FR75665KE7497733",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "Datazoic Premium Subscription"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T01:56:20.772589",
+    "tool_id": "paypal.catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-2FR75665KE7497733",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-2FR75665KE7497733",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Monthly premium access tier"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:36:16.147398",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:39:27.130060",
+    "tool_id": "paypal.catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {
+      "total_required": "true",
+      "page": "1",
+      "page_size": "20"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:42:06.066637",
+    "tool_id": "paypal.catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {
+      "page_size": "20",
+      "total_required": "true",
+      "page": "1"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:47:50.408360",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:50:15.681261",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:55:11.333447",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:57:34.628897",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "description": "Monthly premium access tier",
+        "name": "Datazoic Premium Subscription"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T09:57:44.290559",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "description": "monthly subscription plan",
+        "name": "Datazoic Gold",
+        "price": "50.00",
+        "product_id": "PROD-3X461991CT568983U"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:00:02.386045",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:01:13.090144",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:16:34.332257",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:20:18.631291",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:20:31.078613",
+    "tool_id": "paypal.subscriptions_catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-792339679C641770U",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-792339679C641770U",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Monthly premium access tier"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:20:43.186600",
+    "tool_id": "paypal.subscriptions_catalog_products_update_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/PROD-792339679C641770U",
+    "method": "PATCH",
+    "params": {
+      "product_id": "PROD-792339679C641770U",
+      "request_body": [
+        {
+          "op": "replace",
+          "path": "/description",
+          "value": "Monthly premium access tier"
+        }
+      ]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:21:10.749617",
+    "tool_id": "paypal.subscriptions_subscriptions_revise_plan_or_quantity_of_subscription",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/subscriptions/SUBS-1234567890/revise",
+    "method": "POST",
+    "params": {
+      "subscription_id": "SUBS-1234567890",
+      "request_body": {
+        "plan_id": "PLAN-1234567890",
+        "shipping_amount": {
+          "currency_code": "USD",
+          "value": "10.00"
+        },
+        "shipping_address": {
+          "name": {
+            "full_name": "John Doe"
+          },
+          "address": {
+            "address_line_1": "123 Main St",
+            "address_line_2": "",
+            "admin_area_2": "Anytown",
+            "admin_area_1": "CA",
+            "postal_code": "12345",
+            "country_code": "US"
+          }
+        },
+        "application_context": {
+          "brand_name": "Datazoic",
+          "locale": "en_US",
+          "shipping_preference": "PRIORITY",
+          "payment_method": {
+            "payer_selected": "PAYPAL",
+            "payee_preferred": "PAYPAL"
+          },
+          "return_url": "https://example.com/return",
+          "cancel_url": "https://example.com/cancel"
+        }
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T10:21:22.837214",
+    "tool_id": "paypal.subscriptions_catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {
+      "page_size": "20",
+      "page": "1",
+      "total_required": "true"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:21:41.585416",
+    "tool_id": "paypal.vault_payment_source_setup_tokens_create_a_setup_token",
+    "url": "https://api-m.sandbox.paypal.com/v3/vault/setup-tokens",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "payment_source": {
+          "card": {
+            "number": "1234567890123456",
+            "expiry": "12/2025",
+            "name": "John Doe",
+            "billing_address": {
+              "address_line_1": "123 Main St",
+              "address_line_2": "",
+              "admin_area_2": "Anytown",
+              "admin_area_1": "CA",
+              "postal_code": "12345",
+              "country_code": "US"
+            }
+          }
+        }
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T10:27:59.111587",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "type": "SERVICE",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:30:49.916753",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:31:03.907413",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "product_id": "PROD-4WH13352CR4110430",
+        "name": "Datazoic Gold",
+        "billing_cycles": [
+          {
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50.00",
+                "currency_code": "USD"
+              }
+            },
+            "frequency": {
+              "interval_unit": "MONTH",
+              "interval_count": 1
+            },
+            "tenure_type": "REGULAR",
+            "sequence": 1,
+            "total_cycles": 0
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "setup_fee": {
+            "value": "0",
+            "currency_code": "USD"
+          },
+          "setup_fee_failure_action": "CONTINUE",
+          "payment_failure_threshold": 3
+        }
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:31:17.209094",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "product_id": "PROD-4WH13352CR4110430",
+        "name": "Datazoic Gold",
+        "billing_cycles": [
+          {
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50.00",
+                "currency_code": "USD"
+              }
+            },
+            "frequency": {
+              "interval_unit": "MONTH",
+              "interval_count": 1
+            },
+            "tenure_type": "REGULAR",
+            "sequence": 1,
+            "total_cycles": 0
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "setup_fee": {
+            "value": "0",
+            "currency_code": "USD"
+          },
+          "setup_fee_failure_action": "CONTINUE",
+          "payment_failure_threshold": 3
+        }
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:31:59.446770",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "product_id": "PROD-4WH13352CR4110430",
+        "name": "Datazoic Gold",
+        "billing_cycles": [
+          {
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50.00",
+                "currency_code": "USD"
+              }
+            },
+            "frequency": {
+              "interval_unit": "MONTH",
+              "interval_count": 1
+            },
+            "tenure_type": "REGULAR",
+            "sequence": 1,
+            "total_cycles": 0
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "setup_fee": {
+            "value": "0",
+            "currency_code": "USD"
+          },
+          "setup_fee_failure_action": "CONTINUE",
+          "payment_failure_threshold": 3
+        }
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:33:21.357196",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:46:54.862099",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:47:04.849381",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "New Product",
+        "description": "This is a new product"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T10:47:33.985231",
+    "tool_id": "paypal.expanded_checkout_save_payment_methods_save_during_purchase_vault_at_checkout_payment_source_paypal_create_order_with_paypal",
+    "url": "https://api-m.sandbox.paypal.com/v2/checkout/orders",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "intent": "CAPTURE",
+        "payment_source": {
+          "paypal": {
+            "attributes": {
+              "vault": {
+                "store_in_vault": "ON",
+                "usage_type": "ANY"
+              }
+            },
+            "experience_context": {
+              "return_url": "https://example.com/return",
+              "cancel_url": "https://example.com/cancel",
+              "user_action": "PAY_NOW",
+              "shipping_preference": "DEFAULT"
+            }
+          }
+        },
+        "purchase_units": [
+          {
+            "amount": {
+              "currency_code": "USD",
+              "value": "10.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "5.00"
+                },
+                "shipping": {
+                  "currency_code": "USD",
+                  "value": "5.00"
+                }
+              }
+            },
+            "items": [
+              {
+                "name": "Product 1",
+                "description": "This is product 1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "5.00"
+                },
+                "quantity": "1",
+                "category": "Electronics",
+                "sku": "PROD-123456",
+                "upc": {
+                  "type": "EAN13",
+                  "code": "1234567890123"
+                },
+                "image_url": "https://example.com/image1.jpg",
+                "url": "https://example.com/product1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T10:50:58.253562",
+    "tool_id": "paypal.show_payout_item_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/payments/payouts-item/EXT-{{$timestamp}}",
+    "method": "GET",
+    "params": {
+      "payout_item_id": "EXT-{{$timestamp}}"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T10:58:35.749521",
+    "tool_id": "paypal.show_payout_item_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/payments/payouts-item/EXT-{{$timestamp}}",
+    "method": "GET",
+    "params": {
+      "payout_item_id": "EXT-{{$timestamp}}"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:00:53.518681",
+    "tool_id": "paypal.generate_access_token",
+    "url": "https://api-m.sandbox.paypal.com/v1/oauth2/token",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "external_id": "EXT-{{$timestamp}}",
+        "legal_country_code": "US",
+        "organization": "{{managed_path_organization}}",
+        "user_id": "{{$timestamp}}",
+        "primary_currency_code": "USD"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:07:28.755100",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:07:52.724024",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "product_id": "PROD-5YH08714JX8619815",
+        "name": "Datazoic Gold",
+        "description": "Monthly subscription plan",
+        "billing_cycles": [
+          {
+            "frequency": {
+              "interval_unit": "MONTH",
+              "interval_count": 1
+            },
+            "tenure_type": "REGULAR",
+            "sequence": 1,
+            "total_cycles": 12,
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50.00",
+                "currency_code": "USD"
+              }
+            }
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "setup_fee": {
+            "value": "0.00",
+            "currency_code": "USD"
+          },
+          "setup_fee_failure_action": "CONTINUE",
+          "payment_failure_threshold": 3
+        }
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:08:03.376392",
+    "tool_id": "paypal.send_message_about_dispute_to_other_party",
+    "url": "https://api-m.sandbox.paypal.com/v1/customer/disputes/DISP-12345678/send-message",
+    "method": "POST",
+    "params": {
+      "dispute_id": "DISP-12345678",
+      "request_body": {
+        "message": "This is a test message"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:11:01.354917",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "Datazoic Premium Subscription",
+        "description": "Monthly premium access tier"
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:11:25.725134",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "product_id": "PROD-989868981N155711N",
+        "name": "Datazoic Gold",
+        "description": "Monthly subscription plan",
+        "status": "ACTIVE",
+        "billing_cycles": [
+          {
+            "frequency": {
+              "interval_unit": "MONTH",
+              "interval_count": 1
+            },
+            "tenure_type": "REGULAR",
+            "sequence": 1,
+            "total_cycles": 12,
+            "pricing_scheme": {
+              "fixed_price": {
+                "value": "50.00",
+                "currency_code": "USD"
+              }
+            }
+          }
+        ],
+        "payment_preferences": {
+          "auto_bill_outstanding": true,
+          "setup_fee": {
+            "value": "0.00",
+            "currency_code": "USD"
+          },
+          "setup_fee_failure_action": "CONTINUE",
+          "payment_failure_threshold": 3
+        },
+        "taxes": {
+          "percentage": "0.00",
+          "inclusive": false
+        }
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:11:36.594144",
+    "tool_id": "paypal.escalate_dispute_to_claim",
+    "url": "https://api-m.sandbox.paypal.com/v1/customer/disputes/DISP-1234567890/escalate",
+    "method": "POST",
+    "params": {
+      "dispute_id": "DISP-1234567890",
+      "request_body": {
+        "note": "Dispute escalated to claim"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:13:40.825057",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {}
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:14:15.388394",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "request_body": {
+        "name": "example_product",
+        "type": "physical",
+        "id": "12345",
+        "description": "This is an example product",
+        "category": "electronics",
+        "image_url": "https://example.com/image.jpg",
+        "home_url": "https://example.com/home"
+      }
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:28:37.857372",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:29:16.355842",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:31:33.870409",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:32:51.581275",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:43:02.935843",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:46:29.404202",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:46:42.929007",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789798586995",
+      "name": "Datazoic Gold",
+      "description": "Monthly premium access tier",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "TRIAL",
+      "sequence": 1,
+      "total_cycles": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:48:01.342426",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:52:00.254311",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:52:15.740090",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789798918356",
+      "name": "Datazoic Gold",
+      "description": "Monthly premium access tier",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "TRIAL",
+      "sequence": 1,
+      "total_cycles": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T11:55:29.491235",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:55:40.817472",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789799127792",
+      "name": "Datazoic Gold",
+      "description": "Monthly premium access tier",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "TRIAL",
+      "sequence": 1,
+      "total_cycles": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:55:54.255240",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789799127792",
+      "name": "Datazoic Gold",
+      "description": "Monthly premium access tier",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "TRIAL",
+      "sequence": 1,
+      "total_cycles": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:56:07.523454",
+    "tool_id": "paypal.subscriptions_catalog_products_show_product_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/1789799127792",
+    "method": "GET",
+    "params": {
+      "product_id": "1789799127792"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:56:19.527798",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:56:33.420004",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-0WC43303HV222551BNKXCVZA",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-0WC43303HV222551BNKXCVZA"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:56:52.026151",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:57:03.946861",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:57:14.919598",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:57:30.827692",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:57:48.542440",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T11:58:06.656855",
+    "tool_id": "paypal.subscriptions_plans_show_plan_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/P-8T571497HJ845010DNKXCV4Q",
+    "method": "GET",
+    "params": {
+      "billing_plan_id": "P-8T571497HJ845010DNKXCV4Q"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T12:00:58.066805",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T12:01:31.226225",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T13:09:53.896035",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T14:29:30.581856",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T14:33:36.967348",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T14:33:52.615981",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "TRIAL",
+      "sequence": 1,
+      "total_cycles": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD",
+      "auto_bill_outstanding": 1,
+      "setup_fee_value": "0",
+      "setup_fee_failure_action": "CONTINUE",
+      "payment_failure_threshold": 3,
+      "percentage": "0",
+      "inclusive": 0
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T14:40:22.188520",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T14:40:33.592676",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier",
+      "status": "SUCCESS",
+      "id": "1789809020570"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T14:42:53.007424",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T14:43:05.041625",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier",
+      "status": "SUCCESS",
+      "id": "1789809170655",
+      "product_id": "1789809170655"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:05:01.084640",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "type": "DIGITAL",
+      "id": "{{$timestamp}}",
+      "description": "Monthly premium access tier",
+      "category": "SUBSCRIPTION",
+      "image_url": "https://example.com/gallary/images/{{$timestamp}}.jpg",
+      "home_url": "https://example.com/catalog/{{$timestamp}}.jpg"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:07:20.879550",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier",
+      "type": "SERVICE",
+      "id": "{{$timestamp}}"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:11:54.698215",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Monthly premium access tier",
+      "description": "Monthly premium access tier",
+      "type": "SERVICE",
+      "id": "{{$timestamp}}"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:12:06.219929",
+    "tool_id": "paypal.subscriptions_plans_update_pricing",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans/1789810911931/update-pricing-schemes",
+    "method": "POST",
+    "params": {
+      "billing_plan_id": "1789810911931",
+      "process_change_from": "NEXT_PAYMENT",
+      "currency_code": "USD",
+      "billing_cycle_sequence": 1,
+      "effective_time": "2022-11-01T00:00:00Z",
+      "fixed_price_value": "10"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:22:58.404219",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:23:02.817925",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789811576517",
+      "name": "Datazoic Gold",
+      "description": "Monthly subscription plan",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "fixed_price_value": "50",
+      "currency_code": "USD",
+      "auto_bill_outstanding": 1
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:26:33.104399",
+    "tool_id": "paypal.onboarding_limited_release_manage_accounts_create_managed_account",
+    "url": "https://api-m.sandbox.paypal.com/v3/customer/managed-accounts",
+    "method": "POST",
+    "params": {
+      "external_id": "EXT-12345",
+      "legal_country_code": "US",
+      "organization": "stark_industries_org",
+      "user_id": "user-123",
+      "primary_currency_code": "USD",
+      "given_name": "Tony",
+      "surname": "Stark",
+      "names_type": "LEGAL",
+      "address_line_1": "200 Park Ave",
+      "admin_area_2": "New York",
+      "postal_code": "10022",
+      "country_code": "US",
+      "addresses_type": "HOME",
+      "business_entity_type": "CORPORATION",
+      "business_name": "STARK INDUSTRIES",
+      "national_number": "1",
+      "phone_numbers_type": "BUSINESS",
+      "identification_number": "123-45-6789",
+      "issuing_country_code": "US",
+      "identification_documents_type": "SOCIAL_SECURITY_NUMBER",
+      "citizenship": "US",
+      "date_of_birth": "1970-05-29",
+      "percentage_of_ownership": "100",
+      "controlling_influence": 0,
+      "declarations_name": "TWENTY_FIVE_PERCENT_BENEFICIAL_OWNER",
+      "declarations_value": "YES",
+      "agreements_type": "TERMS_ACCEPTED",
+      "major_version": 1,
+      "minor_version": 1,
+      "accepted_time": "2023-01-01T00:00:00Z"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:28:05.668249",
+    "tool_id": "paypal.vault_payment_source_setup_tokens_create_a_setup_token",
+    "url": "https://api-m.sandbox.paypal.com/v3/vault/setup-tokens",
+    "method": "POST",
+    "params": {
+      "number": "1111222233334444",
+      "expiry": "2027-02",
+      "card_name": "Jane Doe",
+      "address_line_1": "2211 N First Street",
+      "address_line_2": "",
+      "admin_area_1": "CA",
+      "admin_area_2": "San Jose",
+      "postal_code": "95131",
+      "country_code": "US"
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:33:10.539051",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:33:14.929611",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789812188694",
+      "name": "Datazoic Gold",
+      "description": "Monthly subscription plan",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "fixed_price_value": "50",
+      "currency_code": "USD",
+      "auto_bill_outstanding": 1
+    },
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-09-19T15:37:34.149598",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:37:39.054946",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789812451579",
+      "name": "Datazoic Gold",
+      "description": "Monthly subscription plan for Datazoic Gold",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "fixed_price_value": "50",
+      "currency_code": "USD",
+      "auto_bill_outstanding": 1
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:40:45.037963",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Premium Subscription",
+      "description": "Monthly premium access tier"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:40:49.551417",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789812643696",
+      "name": "Datazoic Gold",
+      "description": "Monthly subscription plan priced at $50 USD",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "auto_bill_outstanding": 1,
+      "fixed_price_value": "50",
+      "currency_code": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:43:09.703717",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Datazoic Platinum",
+      "type": "PHYSICAL",
+      "description": "Datazoic Platinum physical product"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:43:15.370545",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789812787649",
+      "name": "Datazoic Platinum Monthly Plan",
+      "description": "Monthly subscription for Datazoic Platinum",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "auto_bill_outstanding": 1,
+      "fixed_price_value": "100",
+      "currency_code": "USD"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:44:02.779239",
+    "tool_id": "paypal.subscriptions_catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {},
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:44:38.487061",
+    "tool_id": "paypal.invoices_list_invoices",
+    "url": "https://api-m.sandbox.paypal.com/v2/invoicing/invoices?page=1&page_size=10&total_required=true&fields=amount",
+    "method": "GET",
+    "params": {},
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:45:06.661505",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Premium Hardware",
+      "description": "Premium Hardware physical product",
+      "type": "PHYSICAL"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:45:11.088103",
+    "tool_id": "paypal.subscriptions_catalog_products_show_product_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/1789812905775",
+    "method": "GET",
+    "params": {
+      "product_id": "1789812905775"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:45:16.046563",
+    "tool_id": "paypal.subscriptions_catalog_products_show_product_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/1789812905775",
+    "method": "GET",
+    "params": {
+      "product_id": "1789812905775"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:45:20.219756",
+    "tool_id": "paypal.subscriptions_catalog_products_show_product_details",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products/1789812905775",
+    "method": "GET",
+    "params": {
+      "product_id": "1789812905775"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:46:32.034332",
+    "tool_id": "paypal.subscriptions_plans_list_plans",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {},
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:47:24.424643",
+    "tool_id": "paypal.subscriptions_catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {},
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:47:30.446708",
+    "tool_id": "paypal.subscriptions_catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {},
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:47:34.908404",
+    "tool_id": "paypal.subscriptions_catalog_products_list_products",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products?page_size=10&page=1&total_required=true",
+    "method": "GET",
+    "params": {
+      "total_required": "true"
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:49:07.525972",
+    "tool_id": "paypal.subscriptions_catalog_products_create_product",
+    "url": "https://api-m.sandbox.paypal.com/v1/catalogs/products",
+    "method": "POST",
+    "params": {
+      "name": "Cloud Storage 500GB",
+      "description": "A 500GB secure cloud storage solution for personal use."
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-09-19T15:49:12.361335",
+    "tool_id": "paypal.subscriptions_plans_create_plan",
+    "url": "https://api-m.sandbox.paypal.com/v1/billing/plans",
+    "method": "POST",
+    "params": {
+      "product_id": "1789813146119",
+      "name": "Monthly Plan",
+      "description": "Monthly subscription plan for Cloud Storage 500GB",
+      "status": "ACTIVE",
+      "interval_unit": "MONTH",
+      "interval_count": 1,
+      "tenure_type": "REGULAR",
+      "sequence": 1,
+      "total_cycles": 0,
+      "fixed_price_value": "15",
+      "currency_code": "USD",
+      "auto_bill_outstanding": 1
+    },
+    "status": "SUCCESS"
+  }
+]
